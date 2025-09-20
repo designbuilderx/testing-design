@@ -1,24 +1,65 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import JSZip from 'jszip';
+import { saveAs } from 'file-saver';
+import { FormsModule } from '@angular/forms';
+import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+import { ButtonThemeViewContent } from '../../utils/btn-file';
 
 @Component({
   selector: 'app-editor-live-playground',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule, MonacoEditorModule],
   templateUrl: './editor-live-playground.component.html',
   styleUrls: ['./editor-live-playground.component.scss']
 })
 export class EditorLivePlaygroundComponent {
-@ViewChild('editor', { static: true }) editor!: ElementRef;
-  monacoInstance: any;
+  @Input() htmlCode = ButtonThemeViewContent.htmlCode;
+  @Input() cssCode = ButtonThemeViewContent.cssCode;
+  @Input() tsCode = ButtonThemeViewContent.tsCode;
 
-  ngAfterViewInit() {
-    // require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs' } });
-    // require(['vs/editor/editor.main'], () => {
-    //   this.monacoInstance = monaco.editor.create(this.editor.nativeElement, {
-    //     value: '<h1>Hello World</h1>',
-    //     language: 'html',
-    //     theme: 'vs-dark'
-    //   });
-    // });
+  @Input() filename = 'filename';
+
+  // Monaco editor options
+  htmlOptions = { theme: 'vs-dark', language: 'html', automaticLayout: true };
+  cssOptions = { theme: 'vs-dark', language: 'css', automaticLayout: true };
+  tsOptions = { theme: 'vs-dark', language: 'typescript', automaticLayout: true };
+
+  previewUrl: SafeResourceUrl = '';
+
+  constructor(private sanitizer: DomSanitizer) {}
+
+  ngOnInit(): void {
+    this.updatePreview();
+  }
+
+  updatePreview() {
+    const fullHtml = `
+      <html>
+        <head>
+          <style>${this.cssCode}</style>
+        </head>
+        <body>
+          ${this.htmlCode}
+          <script>
+            ${this.tsCode}
+          </script>
+        </body>
+      </html>
+    `;
+
+    const blob = new Blob([fullHtml], { type: 'text/html' });
+    this.previewUrl = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(blob));
+  }
+
+  async downloadUpdatedComponent() {
+    const zip = new JSZip();
+    zip.file(`${this.filename}.component.ts`, this.tsCode);
+    zip.file(`${this.filename}.component.html`, this.htmlCode);
+    zip.file(`${this.filename}.component.scss`, this.cssCode);
+
+    const content = await zip.generateAsync({ type: 'blob' });
+    saveAs(content, `${this.filename}.zip`);
   }
 }
-

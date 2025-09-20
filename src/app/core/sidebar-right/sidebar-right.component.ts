@@ -14,8 +14,8 @@ import * as monaco from 'monaco-editor';
   styleUrls: ['./sidebar-right.component.scss']
 })
 export class SidebarRightComponent {
-  @ViewChild('monacoContainer', { static: false }) monacoContainer!: ElementRef<HTMLDivElement>;
-  editor!: monaco.editor.IStandaloneCodeEditor;
+  // @ViewChild('monacoContainer', { static: false }) monacoContainer!: ElementRef<HTMLDivElement>;
+  // editor!: monaco.editor.IStandaloneCodeEditor;
 
   previewTitle = 'Preview';
   selectedComponentHtml$: Observable<string>;
@@ -38,46 +38,46 @@ export class SidebarRightComponent {
   updatePreviewColor(color: string) {
     this.componentColor = color;
     this.previewService.setColor(color);
-    if (this.editor) {
-      const currentValue = this.editor.getValue();
-      const updatedValue = currentValue.replace(/background:\s*#5b21b6/g, `background:${color}`);
-      this.editor.setValue(updatedValue);
-    }
+    // if (this.editor) {
+    //   const currentValue = this.editor.getValue();
+    //   const updatedValue = currentValue.replace(/background:\s*#5b21b6/g, `background:${color}`);
+    //   this.editor.setValue(updatedValue);
+    // }
   }
 
   resetPreview() {
     this.previewService.setComponent(null);
-    if (this.editor) this.editor.setValue('');
+    // if (this.editor) this.editor.setValue('');
   }
 
   toggleEditor() {
     this.editorVisible = !this.editorVisible;
-    if (this.editorVisible && this.monacoContainer && !this.editor) {
-      setTimeout(() => this.initMonaco(), 0);
-    }
+    // if (this.editorVisible && this.monacoContainer && !this.editor) {
+    //   setTimeout(() => this.initMonaco(), 0);
+    // }
   }
 
   initMonaco() {
-    this.editor = monaco.editor.create(this.monacoContainer.nativeElement, {
-      value: '',
-      language: 'html',
-      automaticLayout: true,
-      theme: 'vs-light',
-      fontSize: 14,
-      minimap: { enabled: false },
-      scrollBeyondLastLine: false
-    });
+    // this.editor = monaco.editor.create(this.monacoContainer.nativeElement, {
+    //   value: '',
+    //   language: 'html',
+    //   automaticLayout: true,
+    //   theme: 'vs-light',
+    //   fontSize: 14,
+    //   minimap: { enabled: false },
+    //   scrollBeyondLastLine: false
+    // });
 
-    // Sync selected component HTML into editor
-    this.selectedComponentHtml$.subscribe(html => {
-      if (this.editor && html !== this.editor.getValue()) {
-        this.editor.setValue(html);
-      }
-    });
+    // // Sync selected component HTML into editor
+    // this.selectedComponentHtml$.subscribe(html => {
+    //   if (this.editor && html !== this.editor.getValue()) {
+    //     this.editor.setValue(html);
+    //   }
+    // });
 
-    this.editor.onDidChangeModelContent(() => {
-      const newValue = this.editor.getValue();
-      this.previewService.setPreview(newValue);
-    });
+    // this.editor.onDidChangeModelContent(() => {
+    //   const newValue = this.editor.getValue();
+    //   this.previewService.setPreview(newValue);
+    // });
   }
 }

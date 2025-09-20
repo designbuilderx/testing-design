@@ -1,1 +1,21 @@
-<div #editor style="height:400px;border:1px solid #ccc;"></div>
+<div class="editor-section">
+  <h3>TypeScript</h3>
+  <ngx-monaco-editor [(ngModel)]="tsCode" [options]="tsOptions" (ngModelChange)="updatePreview()"></ngx-monaco-editor>
+</div>
+
+<div class="editor-section">
+  <h3>HTML</h3>
+  <ngx-monaco-editor [(ngModel)]="htmlCode" [options]="htmlOptions" (ngModelChange)="updatePreview()"></ngx-monaco-editor>
+</div>
+
+<div class="editor-section">
+  <h3>SCSS</h3>
+  <ngx-monaco-editor [(ngModel)]="cssCode" [options]="cssOptions" (ngModelChange)="updatePreview()"></ngx-monaco-editor>
+</div>
+
+<div class="actions">
+  <button (click)="downloadUpdatedComponent()">Download Component</button>
+</div>
+
+<h3>Live Preview</h3>
+<iframe [src]="previewUrl" class="preview-frame"></iframe>
