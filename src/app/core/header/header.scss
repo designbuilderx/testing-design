@@ -1,0 +1,61 @@
+@import '../../../styles/variable.scss';
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: var(--primary-color);
+  color: #fff;
+  gap: 12px;
+
+  .brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  nav {
+    display: flex;
+    gap: 6px;
+
+    button {
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      border: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      cursor: pointer;
+
+      &.active {
+        background: rgba(255, 255, 255, 0.25);
+      }
+    }
+  }
+
+  .search-wrap {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    input {
+      width: 60%;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .right-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+
+    input[type="color"] {
+      cursor: pointer;
+      border: none;
+      background: transparent;
+    }
+  }
+}

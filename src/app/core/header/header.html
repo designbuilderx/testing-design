@@ -1,0 +1,20 @@
+<header class="app-header">
+  <div class="brand">Component Explorer</div>
+
+  <nav class="nav">
+    <button routerLink="/home" routerLinkActive="active" class="nav-btn">Home</button>
+    <button routerLink="/summary" routerLinkActive="active" class="nav-btn">Component Summary</button>
+    <button routerLink="/builder" routerLinkActive="active" class="nav-btn">Template Builder</button>
+    <button routerLink="/editor" routerLinkActive="active" class="nav-btn">Live Editor</button>
+    <button routerLink="/dashboard" routerLinkActive="active" class="nav-btn">Platform Summary</button>
+  </nav>
+
+  <div class="search-wrap">
+    <input id="searchInput" [(ngModel)]="search" (input)="onSearch()" placeholder="Search components or summary..." />
+  </div>
+
+  <div class="right-actions">
+    <div class="theme-label">Theme</div>
+    <input id="globalColor" type="color" [value]="primaryColor" (input)="onColorChange($event.target.value)" title="Global primary color"/>
+  </div>
+</header>

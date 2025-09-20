@@ -1,0 +1,18 @@
+<div *ngIf="selectedComponent$ | async as selectedComponent; else noSelection">
+  <h3>{{ selectedComponent.name }} Options</h3>
+
+  <div class="option-grid">
+    <div 
+      class="option-card" 
+      *ngFor="let opt of selectedComponent.children" 
+      (click)="selectOption(opt)"
+    >
+      <div class="option-name">{{ opt.name }}</div>
+      <div class="option-preview" [innerHTML]="opt.html"></div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noSelection>
+  <div>Select a component from the left sidebar to see options</div>
+</ng-template>

@@ -1,0 +1,47 @@
+@import '../../../styles/variable.scss';
+
+.section-title {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.frameworks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.fw-radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.tree ul {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.tree li {
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.tree .toggle::before {
+  content: "▶";
+  font-size: 10px;
+  display: inline-block;
+  width: 12px;
+  margin-right: 5px;
+  transition: transform 0.2s;
+}
+
+.component-item:hover {
+  color: #5b21b6;
+  font-weight: bold;
+}

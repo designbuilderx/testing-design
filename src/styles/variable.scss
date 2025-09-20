@@ -1,0 +1,25 @@
+/* Color Palette */
+/* variable.scss */
+$radius: 8px;
+$shadow: 0 2px 8px rgba(0,0,0,0.05);
+$font-family: 'Inter', Arial, sans-serif;
+
+/* Dynamic theme colors */
+:root {
+  --primary-color: #5b21b6;
+  --secondary-color: #9333ea;
+  --background-color: #f6f7fb;
+  --text-color: #1f2937;
+  --border-color: #e6e9ef;
+}
+
+
+/* UI Tokens */
+$radius: 8px;
+$shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+/* Typography */
+$font-family: 'Inter', Arial, sans-serif;
+$font-size-base: 14px;
+$font-size-sm: 12px;
+$font-size-lg: 16px;

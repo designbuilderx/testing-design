@@ -1,0 +1,40 @@
+@import '../../../styles/variable.scss';
+
+.sidebar-right {
+  width: 440px;
+  padding: 16px;
+  background: #fff;
+  border-left: 1px solid var(--border);
+  height: 100vh;
+  overflow-y: auto;
+  font-family: var(--font-family);
+
+  .preview-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+    .preview-controls { display: flex; gap: 8px;
+      .btn {
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: #fff;
+        cursor: pointer;
+        &:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+      }
+    }
+  }
+
+  .preview-box {
+    min-height: 320px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px dashed var(--border);
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .component-color { display: flex; align-items: center; gap: 10px;
+    input[type='color'] { width: 36px; height: 24px; border: none; cursor: pointer; }
+  }
+}
