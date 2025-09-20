@@ -1,20 +1,37 @@
 <header class="app-header">
+  <!-- Brand -->
   <div class="brand">Component Explorer</div>
 
+  <!-- Navigation -->
   <nav class="nav">
     <button routerLink="/home" routerLinkActive="active" class="nav-btn">Home</button>
-    <!-- <button routerLink="/summary" routerLinkActive="active" class="nav-btn">Component Summary</button> -->
     <button routerLink="/builder" routerLinkActive="active" class="nav-btn">Template Builder</button>
     <button routerLink="/editor" routerLinkActive="active" class="nav-btn">Live Editor</button>
     <button routerLink="/dashboard" routerLinkActive="active" class="nav-btn">Platform Summary</button>
   </nav>
 
+  <!-- Search -->
   <div class="search-wrap">
-    <input id="searchInput" [(ngModel)]="search" (input)="onSearch()" placeholder="Search components or summary..." />
+    <input
+      id="searchInput"
+      [(ngModel)]="search"
+      (input)="onSearch()"
+      placeholder="Search components or summary..."
+    />
   </div>
 
+  <!-- Right Actions / Theme Picker -->
   <div class="right-actions">
     <div class="theme-label">Theme</div>
-    <input id="globalColor" type="color" [value]="primaryColor" (input)="onColorChange($event.target.value)" title="Global primary color"/>
+    <div class="color-picker-wrapper">
+      <input
+        id="globalColor"
+        type="color"
+        [value]="primaryColor"
+        (input)="onColorChange($event.target.value)"
+        title="Global primary color"
+      />
+      <div class="color-swatch" [style.background-color]="primaryColor"></div>
+    </div>
   </div>
 </header>
