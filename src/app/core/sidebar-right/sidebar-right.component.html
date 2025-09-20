@@ -1,4 +1,5 @@
 <aside class="sidebar-right">
+  <!-- Header -->
   <div class="preview-header">
     <div><strong>{{ previewTitle }}</strong></div>
     <div class="preview-controls">
@@ -7,16 +8,26 @@
     </div>
   </div>
 
-   <ng-container *ngIf="selectedComponentHtml$ | async as html; else noSelection">
-    <div [innerHTML]="html | safeHtml"></div>
+  <!-- Preview content -->
+  <ng-container *ngIf="selectedComponentHtml$ | async as html; else noSelection">
+    <div class="preview-box has-content" [innerHTML]="html | safeHtml"></div>
   </ng-container>
 
   <ng-template #noSelection>
     <div class="preview-box">Select an option to preview</div>
   </ng-template>
 
+  <!-- Color picker -->
   <div class="component-color">
     <label for="componentColor">Component color:</label>
-    <input type="color" id="componentColor" [(ngModel)]="componentColor" (input)="updatePreviewColor(componentColor)" />
+    <div class="color-picker-wrapper">
+      <input
+        type="color"
+        id="componentColor"
+        [(ngModel)]="componentColor"
+        (input)="updatePreviewColor(componentColor)"
+      />
+      <div class="color-swatch" [style.background-color]="componentColor"></div>
+    </div>
   </div>
 </aside>

@@ -62,6 +62,7 @@
   transition: background-color 0.2s;
 }
 
+
 .tree .toggle::before {
   content: "▶";
   font-size: 10px;
@@ -75,14 +76,11 @@
   transform: rotate(90deg);
 }
 
-.component-item {
-  padding: 3px 6px;
-  border-radius: $radius;
-  transition: background-color 0.2s, color 0.2s;
-
-  &:hover {
+.component-item:hover {
     background-color: $primary-light;
     color: $primary-color;
     font-weight: 600;
-  }
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    cursor: pointer;
 }
