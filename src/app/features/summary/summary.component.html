@@ -1,0 +1,20 @@
+<div id="summarySection">
+  <div class="summary-grid">
+    <div *ngFor="let item of paginatedData()" class="summary-item">
+      <h4>{{ item.title }}</h4>
+      <p>{{ item.desc }}</p>
+      <div class="tags">
+        <span *ngFor="let tag of item.tags" class="tag">{{ tag }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button 
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      [class.active]="i + 1 === currentPage"
+      (click)="goToPage(i + 1)">
+      {{ i + 1 }}
+    </button>
+  </div>
+</div>

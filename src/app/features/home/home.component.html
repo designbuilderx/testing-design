@@ -1,0 +1,23 @@
+<div class="home-component">
+  <div *ngIf="selectedComponent$ | async as selectedComponent; else noSelection">
+    <h3 class="component-title">{{ selectedComponent.name }} Variants</h3>
+
+    <div class="option-grid">
+      <div 
+        class="option-card" 
+        *ngFor="let opt of getVariants(selectedComponent)"
+        [class.selected]="opt.name === selectedOptionName"
+        (click)="selectOption(opt)"
+      >
+        <div class="option-preview" [innerHTML]="opt.html | safeHtml"></div>
+        <div class="option-name">{{ opt.name }}</div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noSelection>
+    <div class="no-selection">
+      Select a component from the left sidebar to see its variants
+    </div>
+  </ng-template>
+</div>

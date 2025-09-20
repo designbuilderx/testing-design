@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SidebarLeftComponent } from './core/sidebar-left/sidebar-left.component';
+import { SidebarRightComponent } from './core/sidebar-right/sidebar-right.component';
+import { HeaderComponent } from './core/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterModule, HeaderComponent, SidebarLeftComponent, SidebarRightComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
 export class App {
-  protected readonly title = signal('designbuilderx');
+  onSelect(component: string) {
+    console.log('Selected Component:', component);
+  }
 }
