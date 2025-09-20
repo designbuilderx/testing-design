@@ -6,7 +6,7 @@
       class="option-card" 
       *ngFor="let opt of selectedComponent.children" 
       (click)="selectOption(opt)"
-    >
+    >,
       <div class="option-name">{{ opt.name }}</div>
       <div class="option-preview" [innerHTML]="opt.html"></div>
     </div>

@@ -1,5 +1,5 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 interface SummaryItem {
@@ -8,14 +8,14 @@ interface SummaryItem {
   tags: string[];
 }
 
+
 @Component({
-  selector: 'app-summary',
-  standalone: true,
-  imports: [CommonModule, FormsModule, AsyncPipe],
-  templateUrl: './summary.html',
-  styleUrls: ['./summary.scss']
+  selector: 'app-component-summary',
+    imports: [CommonModule, FormsModule],
+  templateUrl: './summary.component.html',
+  styleUrl: './summary.component.scss'
 })
-export class SummaryComponent {
+export class ComponentSummaryComponent {
   summaryData: SummaryItem[] = [];
   currentPage = 1;
   perPage = 8;

@@ -1,0 +1,16 @@
+ .option-grid {
+     display: flex;
+     gap: 12px;
+     flex-wrap: wrap;
+ }
+
+ .option-card {
+     border: 1px solid #eee;
+     padding: 12px;
+     cursor: pointer;
+     border-radius: 8px;
+ }
+
+ .option-card:hover {
+     transform: translateY(-2px);
+ }

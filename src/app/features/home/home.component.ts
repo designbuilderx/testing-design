@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './home.html',
- styleUrls: ['./home.scss']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   selectedComponent$: Observable<any>;

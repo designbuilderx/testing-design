@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './core/header/header';
-import { SidebarLeftComponent } from './core/sidebar-left/sidebar-left';
-import { SidebarRightComponent } from './core/sidebar-right/sidebar-right';
+import { SidebarLeftComponent } from './core/sidebar-left/sidebar-left.component';
+import { SidebarRightComponent } from './core/sidebar-right/sidebar-right.component';
+import { HeaderComponent } from './core/header/header.component';
 
 @Component({
   selector: 'app-root',

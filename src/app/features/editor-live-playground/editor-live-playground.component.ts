@@ -1,13 +1,13 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-declare const require: any;
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-editor',
-  standalone: true,
-  template: `<div #editor style="height:400px;border:1px solid #ccc;"></div>`
+  selector: 'app-editor-live-playground',
+  imports: [],
+  templateUrl: './editor-live-playground.component.html',
+  styleUrls: ['./editor-live-playground.component.scss']
 })
-export class EditorComponent implements AfterViewInit {
-  @ViewChild('editor', { static: true }) editor!: ElementRef;
+export class EditorLivePlaygroundComponent {
+@ViewChild('editor', { static: true }) editor!: ElementRef;
   monacoInstance: any;
 
   ngAfterViewInit() {
@@ -21,3 +21,4 @@ export class EditorComponent implements AfterViewInit {
     // });
   }
 }
+

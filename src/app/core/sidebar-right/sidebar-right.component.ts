@@ -2,7 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { combineLatest, map, Observable } from 'rxjs';
-import { SafeHtmlPipe } from '../../services/utils/safe-html.pipes';
+import { SafeHtmlPipe } from '../../utils/safe-html.pipes';
 import { PreviewService } from '../../services/preivew';
 
 @Component({
@@ -14,8 +14,8 @@ import { PreviewService } from '../../services/preivew';
     AsyncPipe,
     SafeHtmlPipe,
   ],
-  templateUrl: './sidebar-right.html',
-  styleUrls: ['./sidebar-right.scss']
+  templateUrl: './sidebar-right.component.html',
+  styleUrls: ['./sidebar-right.component.scss']
 })
 export class SidebarRightComponent {
   previewTitle = 'Preview';

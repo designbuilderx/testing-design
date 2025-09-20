@@ -1,13 +1,14 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import grapesjs from 'grapesjs';
 
 @Component({
-  selector: 'app-builder',
-  standalone: true,
-  template: `<div #editorContainer style="height:520px;border:1px solid #ccc;"></div>`
+  selector: 'app-design-builder',
+  imports: [],
+  templateUrl: './design-builder.component.html',
+  styleUrl: './design-builder.component.scss'
 })
-export class BuilderComponent implements AfterViewInit {
-  @ViewChild('editorContainer', { static: true }) editorContainer!: ElementRef;
+export class DesignBuilderComponent {
+@ViewChild('editorContainer', { static: true }) editorContainer!: ElementRef;
 
   ngAfterViewInit() {
     grapesjs.init({

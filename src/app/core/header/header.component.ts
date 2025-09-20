@@ -9,8 +9,8 @@ import { ThemeService } from '../../services/theme-service';
   selector: 'app-header',
   standalone: true,
   imports: [RouterModule, CommonModule, FormsModule],
-  templateUrl: './header.html',
-  styleUrls: ['./header.scss'],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   search = '';

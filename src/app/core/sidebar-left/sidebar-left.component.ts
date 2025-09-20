@@ -6,8 +6,8 @@ import { PreviewService } from '../../services/preivew';
   selector: 'app-sidebar-left',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './sidebar-left.html',
-  styleUrls: ['./sidebar-left.scss']
+  templateUrl: './sidebar-left.component.html',
+  styleUrls: ['./sidebar-left.component.scss']
 })
 export class SidebarLeftComponent {
   frameworks = ['Bootstrap', 'Tailwind', 'Material', 'Vanilla'];
