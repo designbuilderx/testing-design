@@ -3,19 +3,24 @@
   <div class="preview-header">
     <div><strong>{{ previewTitle }}</strong></div>
     <div class="preview-controls">
-      <button class="btn" (click)="openMonacoEditor()">Open Editor</button>
+      <button class="btn" (click)="toggleEditor()">Open Editor</button>
       <button class="btn" (click)="resetPreview()">Reset</button>
     </div>
   </div>
 
-  <!-- Preview content -->
-  <ng-container *ngIf="selectedComponentHtml$ | async as html; else noSelection">
-    <div class="preview-box has-content" [innerHTML]="html | safeHtml"></div>
-  </ng-container>
+  <!-- Monaco Editor -->
+  <div #monacoContainer class="monaco-editor" *ngIf="editorVisible"></div>
 
-  <ng-template #noSelection>
-    <div class="preview-box">Select an option to preview</div>
-  </ng-template>
+  <!-- Preview content -->
+  <ng-container *ngIf="!editorVisible">
+    <ng-container *ngIf="selectedComponentHtml$ | async as html; else noSelection">
+      <div class="preview-box has-content" [innerHTML]="html | safeHtml"></div>
+    </ng-container>
+
+    <ng-template #noSelection>
+      <div class="preview-box empty">Select an option to preview</div>
+    </ng-template>
+  </ng-container>
 
   <!-- Color picker -->
   <div class="component-color">
