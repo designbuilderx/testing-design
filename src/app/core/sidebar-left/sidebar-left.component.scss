@@ -1,24 +1,52 @@
 @import '../../../styles/variable.scss';
 
+.sidebar-wrapper {
+  height: 100vh;               // full viewport height
+  padding: 16px;
+  background-color: $background-light;
+  border-radius: $radius 0 0 $radius;  // rounded on left only
+  box-shadow: $shadow;
+  font-family: $font-family;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;            // scroll if content exceeds viewport
+}
+
 .section-title {
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
   font-size: 0.95rem;
   font-weight: 600;
+  color: $text-color;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .frameworks {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 14px;
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
 .fw-radio {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 0.88rem;
   cursor: pointer;
+  padding: 4px 8px;
+  border-radius: $radius;
+  transition: background-color 0.2s, color 0.2s;
+
+  input[type='radio'] {
+    accent-color: $primary-color;
+  }
+
+  &:hover {
+    background-color: $primary-light;
+    color: $primary-color;
+  }
 }
 
 .tree ul {
@@ -29,7 +57,9 @@
 
 .tree li {
   cursor: pointer;
-  padding: 4px 0;
+  padding: 5px 0;
+  border-radius: $radius;
+  transition: background-color 0.2s;
 }
 
 .tree .toggle::before {
@@ -38,10 +68,21 @@
   display: inline-block;
   width: 12px;
   margin-right: 5px;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
-.component-item:hover {
-  color: #5b21b6;
-  font-weight: bold;
+.tree .toggle.expanded::before {
+  transform: rotate(90deg);
+}
+
+.component-item {
+  padding: 3px 6px;
+  border-radius: $radius;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: $primary-light;
+    color: $primary-color;
+    font-weight: 600;
+  }
 }
