@@ -304,7 +304,6 @@
       { name: 'Carousel (Images)', html: `<div style="display:flex;gap:8px;overflow-x:auto;width:240px;"><img src="https://via.placeholder.com/100"/><img src="https://via.placeholder.com/100"/><img src="https://via.placeholder.com/100"/></div>` },
     ],
   },
-
   {
     name: 'Maps & Location',
     expanded: false,

@@ -14,7 +14,6 @@ import { componentsTree } from '../../backendData/category-component-tree';
 export class SidebarLeftComponent {
   frameworks = ['Bootstrap', 'Tailwind', 'Material', 'Vanilla', 'Ant Design'];
   selectedFramework = 'Bootstrap';
-
   componentsTree = componentsTree;
 
   constructor(
