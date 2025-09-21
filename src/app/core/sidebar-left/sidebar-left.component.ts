@@ -16,10 +16,16 @@ export class SidebarLeftComponent {
   selectedFramework = 'Bootstrap';
   componentsTree = componentsTree;
 
+  drawerOpen = false; // For mobile drawer
+
   constructor(
     private previewService: PreviewService,
     private route: Router
   ) {}
+
+  toggleDrawer() {
+    this.drawerOpen = !this.drawerOpen;
+  }
 
   toggleCategory(category: any) {
     category.expanded = !category.expanded;
@@ -38,5 +44,7 @@ export class SidebarLeftComponent {
     this.previewService.setComponent(compWithName);
     this.previewService.setPreview(compWithName.children[0].html);
     this.route.navigate(['/home']);
+    this.drawerOpen = false; // Close drawer on mobile after selection
   }
 }
+

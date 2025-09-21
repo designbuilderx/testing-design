@@ -1,4 +1,7 @@
-<div class="sidebar-left">
+<!-- Drawer Toggle Button (Mobile) -->
+<button class="drawer-btn" (click)="toggleDrawer()">☰</button>
+
+<div class="sidebar-left" [class.open]="drawerOpen">
   <h4 class="section-title">Frameworks</h4>
   <div class="frameworks">
     <label *ngFor="let fw of frameworks" class="fw-radio">
@@ -21,3 +24,6 @@
     </ul>
   </div>
 </div>
+
+<!-- Overlay for mobile drawer -->
+<div class="drawer-overlay" *ngIf="drawerOpen" (click)="toggleDrawer()"></div>
