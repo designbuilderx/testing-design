@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,8 @@ export class HeaderComponent {
   primaryColor = getComputedStyle(document.documentElement)
     .getPropertyValue('--primary-color')
     .trim() || '#5b21b6';
+
+  @Input() drawerOpen = false;
 
   @Output() toggleSidebar = new EventEmitter<void>();
 

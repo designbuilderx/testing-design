@@ -10,7 +10,7 @@
   </nav>
 
   <!-- Hamburger button (mobile/tablet) -->
-  <button class="drawer-btn" (click)="onDrawerToggle()">☰</button>
+  <button class="drawer-btn" (click)="onDrawerToggle()">{{ drawerOpen ? '✖' : '☰' }}</button>
 
   <div class="search-wrap">
     <input
