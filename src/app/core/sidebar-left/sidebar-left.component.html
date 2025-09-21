@@ -1,11 +1,14 @@
-<!-- Drawer Toggle Button (Mobile) -->
-<button class="drawer-btn" (click)="toggleDrawer()">☰</button>
-
 <div class="sidebar-left" [class.open]="drawerOpen">
   <h4 class="section-title">Frameworks</h4>
   <div class="frameworks">
     <label *ngFor="let fw of frameworks" class="fw-radio">
-      <input type="radio" name="framework" [value]="fw" [checked]="fw === selectedFramework" (change)="selectFramework(fw)" />
+      <input
+        type="radio"
+        name="framework"
+        [value]="fw"
+        [checked]="fw === selectedFramework"
+        (change)="selectFramework(fw)"
+      />
       {{ fw }}
     </label>
   </div>
@@ -16,7 +19,11 @@
       <li *ngFor="let cat of componentsTree">
         <span class="toggle" (click)="toggleCategory(cat)">{{ cat.name }}</span>
         <ul [style.display]="cat.expanded ? 'block' : 'none'">
-          <li *ngFor="let comp of cat.children" class="component-item" (click)="selectComponent(comp, cat.name)">
+          <li
+            *ngFor="let comp of cat.children"
+            class="component-item"
+            (click)="selectComponent(comp, cat.name)"
+          >
             {{ comp.name }}
           </li>
         </ul>
@@ -24,6 +31,3 @@
     </ul>
   </div>
 </div>
-
-<!-- Overlay for mobile drawer -->
-<div class="drawer-overlay" *ngIf="drawerOpen" (click)="toggleDrawer()"></div>

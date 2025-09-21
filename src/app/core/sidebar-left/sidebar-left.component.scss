@@ -5,8 +5,6 @@
   background: #fff;
   border-right: 1px solid #e0e0e0;
   padding: 16px;
-  height: 100vh;
-  overflow-y: auto;
   font-family: 'Inter', Arial, sans-serif;
   transition: transform 0.3s ease;
   z-index: 1000;
@@ -35,19 +33,19 @@
       transition: background 0.2s;
 
       &:hover {
-        background-color: rgba(91,33,182,0.05);
+        background-color: rgba(91, 33, 182, 0.05);
       }
 
-      input[type="radio"]:checked + label {
+      input[type='radio']:checked + label {
         font-weight: 600;
         color: #5b21b6;
       }
     }
   }
 
-  /* TREE VIEW */
+  /* Tree view */
   .tree {
-    max-height: calc(100vh - 310px);
+    max-height: calc(100vh - 470px);
     overflow: auto;
     margin-bottom: 20px;
 
@@ -69,7 +67,7 @@
     }
 
     .toggle::before {
-      content: "▶";
+      content: '▶';
       display: inline-block;
       margin-right: 6px;
       transition: transform 0.2s;
@@ -89,36 +87,29 @@
   }
 }
 
-/* MOBILE DRAWER */
-@media (max-width: 768px) {
+/* Drawer for mobile/tablet */
+@media (max-width: 1024px) {
   .sidebar-left {
     position: fixed;
-    top: 168px; // height of header
+    top: 168px; // match header height
     left: 0;
     height: calc(100% - 60px);
     transform: translateX(-100%);
     background: #fff;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
-    transition: transform 0.3s ease;
   }
 
   .sidebar-left.open {
     transform: translateX(0);
   }
+}
 
-  .drawer-overlay {
-    display: none;
-    position: fixed;
-    top: 160px;
-    left: 0;
-    width: 100vw;
-    height: calc(100% - 60px);
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 900;
-  }
-
-  .drawer-overlay.show {
-    display: block;
-  }
+.drawer-overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  height: calc(100% - 60px);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 900;
 }
