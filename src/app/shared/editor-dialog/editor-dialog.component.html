@@ -1,0 +1,44 @@
+<div class="overlay">
+  <div class="dialog">
+    <!-- Header -->
+    <div class="dialog-header">
+      <h3>Monaco Editor Playground</h3>
+      <button class="close-btn" (click)="close.emit()">x</button>
+    </div>
+
+    <!-- Body -->
+    <div class="dialog-body">
+      <!-- Left side: Editors -->
+      <div class="editor-pane">
+        <div class="editor-section">
+          <h4>HTML</h4>
+          <ngx-monaco-editor
+            [(ngModel)]="htmlCode"
+            [options]="htmlOptions"
+            (ngModelChange)="updatePreview()"
+            class="editor"
+          ></ngx-monaco-editor>
+        </div>
+
+        <div class="editor-section">
+          <h4>SCSS</h4>
+          <ngx-monaco-editor
+            [(ngModel)]="cssCode"
+            [options]="cssOptions"
+            (ngModelChange)="updatePreview()"
+            class="editor"
+          ></ngx-monaco-editor>
+        </div>
+      </div>
+
+      <!-- Right side: Preview -->
+      <div class="preview-pane">
+        <div class="preview-header">
+          <h4>Live Preview</h4>
+          <button class="download-btn" (click)="downloadUpdatedComponent()">⬇ Download</button>
+        </div>
+        <iframe [src]="previewUrl" class="preview-frame"></iframe>
+      </div>
+    </div>
+  </div>
+</div>

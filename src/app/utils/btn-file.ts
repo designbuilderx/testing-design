@@ -4,9 +4,7 @@ export const ButtonThemeViewContent = {
   <button class="btn secondary-btn">Secondary Button</button>
   <button class="btn tertiary-btn">Tertiary Button</button>
   <button class="btn primary-btn" disabled>Disabled</button>
-
-  <button (click)="showDialog()"><i class="fa-regular fa-pen-to-square"></i></button>
-</div>`,
+`,
 
     cssCode: `/* Base button styles */
 .btn {

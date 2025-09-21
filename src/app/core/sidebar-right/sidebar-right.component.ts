@@ -5,11 +5,13 @@ import { combineLatest, map, Observable } from 'rxjs';
 import { SafeHtmlPipe } from '../../utils/safe-html.pipes';
 import { PreviewService } from '../../services/preivew';
 import * as monaco from 'monaco-editor';
+import { Editor } from 'grapesjs';
+import { EditorDialogComponent } from '../../shared/editor-dialog/editor-dialog.component';
 
 @Component({
   selector: 'app-sidebar-right',
   standalone: true,
-  imports: [CommonModule, FormsModule, AsyncPipe, SafeHtmlPipe],
+  imports: [CommonModule, FormsModule, AsyncPipe, SafeHtmlPipe, EditorDialogComponent],
   templateUrl: './sidebar-right.component.html',
   styleUrls: ['./sidebar-right.component.scss']
 })
@@ -20,7 +22,7 @@ export class SidebarRightComponent {
   previewTitle = 'Preview';
   selectedComponentHtml$: Observable<string>;
   componentColor = '#5b21b6';
-  editorVisible = false;
+  isDialogOpen = false;
 
   constructor(private previewService: PreviewService) {
     this.selectedComponentHtml$ = combineLatest([
@@ -51,33 +53,12 @@ export class SidebarRightComponent {
   }
 
   toggleEditor() {
-    this.editorVisible = !this.editorVisible;
     // if (this.editorVisible && this.monacoContainer && !this.editor) {
     //   setTimeout(() => this.initMonaco(), 0);
     // }
+    
   }
-
-  initMonaco() {
-    // this.editor = monaco.editor.create(this.monacoContainer.nativeElement, {
-    //   value: '',
-    //   language: 'html',
-    //   automaticLayout: true,
-    //   theme: 'vs-light',
-    //   fontSize: 14,
-    //   minimap: { enabled: false },
-    //   scrollBeyondLastLine: false
-    // });
-
-    // // Sync selected component HTML into editor
-    // this.selectedComponentHtml$.subscribe(html => {
-    //   if (this.editor && html !== this.editor.getValue()) {
-    //     this.editor.setValue(html);
-    //   }
-    // });
-
-    // this.editor.onDidChangeModelContent(() => {
-    //   const newValue = this.editor.getValue();
-    //   this.previewService.setPreview(newValue);
-    // });
+  openEditor() {
+     this.isDialogOpen = true;
   }
 }
