@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PreviewService } from '../../services/preivew';
 import { Router } from '@angular/router';
@@ -12,12 +12,12 @@ import { componentsTree } from '../../backendData/category-component-tree';
   styleUrls: ['./sidebar-left.component.scss'],
 })
 export class SidebarLeftComponent {
-  @Input() drawerOpen = false;
-  @Output() closeDrawer = new EventEmitter<void>();
-
   frameworks = ['Bootstrap', 'Tailwind', 'Material', 'Vanilla', 'Ant Design'];
   selectedFramework = 'Bootstrap';
   componentsTree = componentsTree;
+
+  @Input() drawerOpen = false;
+  @Output() closeDrawer = new EventEmitter<void>();
 
   constructor(private previewService: PreviewService, private route: Router) {}
 
@@ -27,7 +27,6 @@ export class SidebarLeftComponent {
 
   selectFramework(framework: string) {
     this.selectedFramework = framework;
-    this.closeDrawer.emit(); // close drawer on mobile
   }
 
   selectComponent(component: any, categoryName: string) {
@@ -39,6 +38,6 @@ export class SidebarLeftComponent {
     this.previewService.setComponent(compWithName);
     this.previewService.setPreview(compWithName.children[0].html);
     this.route.navigate(['/home']);
-    this.closeDrawer.emit(); // close drawer on mobile
+    this.closeDrawer.emit(); // close drawer on mobile/tablet after selection
   }
 }

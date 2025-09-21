@@ -12,7 +12,22 @@ import { HeaderComponent } from './core/header/header.component';
   styleUrls: ['./app.scss']
 })
 export class App {
+  // Tracks sidebar open/close state for mobile/tablet
+  sidebarOpen = false;
+
+  // Called from header toggle button
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
+
+  // Called when a menu item is clicked or overlay is clicked
+  closeSidebar() {
+    this.sidebarOpen = false;
+  }
+
   onSelect(component: string) {
     console.log('Selected Component:', component);
+    // Close drawer on mobile/tablet after selection
+    this.closeSidebar();
   }
 }
