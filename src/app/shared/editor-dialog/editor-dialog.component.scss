@@ -1,0 +1,130 @@
+/* Overlay background */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+}
+
+/* Dialog box */
+.dialog {
+  background: var(--mat-surface, #fff);
+  color: var(--mat-on-surface, #333);
+  width: 90%;
+  max-width: 1200px;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+/* Header */
+.dialog-header {
+  padding: 1rem 1.5rem;
+  background: var(--mat-primary, #1976d2);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .close-btn {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+}
+
+/* Body layout */
+.dialog-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* editors | preview */
+  gap: 1rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+/* Editor side */
+.editor-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+
+  .editor-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--mat-on-surface, #444);
+    }
+
+    .editor {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      min-height: 200px;
+    }
+  }
+}
+
+/* Preview side */
+.preview-pane {
+  display: flex;
+  flex-direction: column;
+
+  .preview-header {
+    display: flex;
+    justify-content: space-between; // makes button right-aligned
+    align-items: center;
+    margin-bottom: 8px;
+
+    h4 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .download-btn {
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 6px;
+      background: var(--mat-primary, #1976d2);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #1257a0;
+      }
+    }
+  }
+
+  .preview-frame {
+    flex: 1;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+  }
+}

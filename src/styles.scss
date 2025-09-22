@@ -1,0 +1,68 @@
+@import './styles/variable.scss';
+
+/* 1. Box-sizing globally for predictable layouts */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove body margin, set base font & line-height */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Normalize headings & paragraphs */
+h1, h2, h3, h4, h5, h6,
+p {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/* 4. Normalize lists */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 5. Normalize links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 6. Responsive images & media */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 7. Forms inherit font & remove browser defaults */
+input, button, textarea, select {
+  font: inherit;
+  line-height: 1.15;
+  margin: 0;
+  outline: none;
+}
+
+/* 8. Buttons: remove default borders/backgrounds & use pointer */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* 9. Tables: collapse borders */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
