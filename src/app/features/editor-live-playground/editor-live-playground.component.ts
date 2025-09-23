@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { FormsModule } from '@angular/forms';
-import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { ButtonThemeViewContent } from '../../utils/btn-file';
@@ -10,7 +9,7 @@ import { ButtonThemeViewContent } from '../../utils/btn-file';
 @Component({
   selector: 'app-editor-live-playground',
   standalone: true,
-  imports: [FormsModule, MonacoEditorModule],
+  imports: [FormsModule],
   templateUrl: './editor-live-playground.component.html',
   styleUrls: ['./editor-live-playground.component.scss']
 })
