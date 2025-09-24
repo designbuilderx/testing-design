@@ -1,9 +1,16 @@
-<app-header></app-header>
+<app-header (toggleSidebar)="toggleSidebar()" [drawerOpen]="sidebarOpen"></app-header>
 
 <div class="workspace">
-  <app-sidebar-left></app-sidebar-left>
+  <app-sidebar-left
+    [drawerOpen]="sidebarOpen"
+    (closeDrawer)="closeSidebar()"
+  ></app-sidebar-left>
+  
   <main class="center">
     <router-outlet></router-outlet>
   </main>
-  <app-sidebar-right></app-sidebar-right>
+  
+  <app-sidebar-right class="hide-on-mobile"></app-sidebar-right>
 </div>
+
+<div class="drawer-overlay" *ngIf="sidebarOpen" (click)="closeSidebar()"></div>

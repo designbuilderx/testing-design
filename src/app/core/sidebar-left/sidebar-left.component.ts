@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PreviewService } from '../../services/preivew';
 import { Router } from '@angular/router';
@@ -16,10 +16,10 @@ export class SidebarLeftComponent {
   selectedFramework = 'Bootstrap';
   componentsTree = componentsTree;
 
-  constructor(
-    private previewService: PreviewService,
-    private route: Router
-  ) {}
+  @Input() drawerOpen = false;
+  @Output() closeDrawer = new EventEmitter<void>();
+
+  constructor(private previewService: PreviewService, private route: Router) {}
 
   toggleCategory(category: any) {
     category.expanded = !category.expanded;
@@ -38,5 +38,6 @@ export class SidebarLeftComponent {
     this.previewService.setComponent(compWithName);
     this.previewService.setPreview(compWithName.children[0].html);
     this.route.navigate(['/home']);
+    this.closeDrawer.emit(); // close drawer on mobile/tablet after selection
   }
 }
