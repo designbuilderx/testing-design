@@ -10,18 +10,18 @@
   </nav>
 
   <!-- Hamburger button (mobile/tablet) -->
-  <button class="drawer-btn" (click)="onDrawerToggle()">{{ drawerOpen ? '✖' : '☰' }}</button>
+  <button class="drawer-btn with-icon" data-variant="secondary" (click)="onDrawerToggle()">{{ drawerOpen ? '✖' : '☰' }}</button>
 
   <div class="search-wrap">
     <input
       id="searchInput"
       [(ngModel)]="search"
       (input)="onSearch()"
-      placeholder="Search components or summary..."
+      placeholder="Search components or summary"
     />
   </div>
 
-  <div class="right-actions">
+  <!-- <div class="right-actions">
     <div class="theme-label">Theme</div>
     <div class="color-picker-wrapper">
       <input
@@ -31,5 +31,5 @@
       />
       <div class="color-swatch" [style.background-color]="primaryColor"></div>
     </div>
-  </div>
+  </div> -->
 </header>

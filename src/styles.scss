@@ -68,19 +68,19 @@ img, picture, video, canvas, svg {
 }
 
 /* 7. Forms inherit font & remove browser defaults */
-input, button, textarea, select {
-  font: inherit;
-  line-height: 1.15;
-  margin: 0;
-  outline: none;
-}
+// input, button, textarea, select {
+//   font: inherit;
+//   line-height: 1.15;
+//   margin: 0;
+//   outline: none;
+// }
 
-/* 8. Buttons: remove default borders/backgrounds & use pointer */
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
+// /* 8. Buttons: remove default borders/backgrounds & use pointer */
+// button {
+//   border: none;
+//   background: none;
+//   cursor: pointer;
+// }
 
 /* 9. Tables: collapse borders */
 table {

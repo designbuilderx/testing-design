@@ -20,19 +20,20 @@
     display: flex;
     gap: 8px;
 
-    .nav-btn {
-      padding: 6px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.3); // subtle border to show shape
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      &:hover {
-        background: rgba(255, 255, 255, 0.35);
-      }
+    // TODO: Refactor using button styles from _buttons.scss
+    // .nav-btn {
+    //   // padding: 6px 16px;
+    //   // border: 1px solid rgba(255, 255, 255, 0.3); // subtle border to show shape
+    //   // background: rgba(255, 255, 255, 0.15);
+    //   // color: #fff;
+    //   // &:hover {
+    //   //   background: rgba(255, 255, 255, 0.35);
+    //   // }
 
-      &.active {
-        background: rgba(255, 255, 255, 0.45);
-      }
-    }
+    //   // &.active {
+    //   //   background: rgba(255, 255, 255, 0.45);
+    //   // }
+    // }
   }
 
   .search-wrap {
@@ -43,6 +44,7 @@
     input {
       width: 100%;
       max-width: 400px;
+      height: 44px;
       padding: 6px 14px;
       border-radius: 20px; // clearly visible
       border: 1px solid #ccc; // subtle border for contrast
@@ -108,11 +110,6 @@
 
   .drawer-btn {
     display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
   }
 
   @media (max-width: 1024px) {
