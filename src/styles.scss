@@ -1,4 +1,25 @@
-@import './styles/variable.scss';
+// @import './styles/variable.scss';
+
+// abstracts
+@import './assets/abstracts/variables';
+@import './assets/abstracts/mixins';
+@import './assets/abstracts/breakpoints';
+
+// base
+@import './assets/base/reset';
+@import './assets/base/typography';
+@import './assets/base/utilities';
+
+// components
+@import './assets/components/buttons';
+@import './assets/components/forms';
+@import './assets/components/cards';
+
+// layout
+@import './assets/layout/grid';
+@import './assets/layout/spacing';
+
+
 
 /* 1. Box-sizing globally for predictable layouts */
 *,

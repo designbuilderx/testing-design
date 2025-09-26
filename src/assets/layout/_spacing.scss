@@ -1,0 +1,7 @@
+.section {
+  padding: 4rem 0;
+
+  @include respond(md) {
+    padding: 2rem 0;
+  }
+}

@@ -1,0 +1,103 @@
+/* ----------------- Base Button Styles ----------------- */
+button {
+  font-family: $font-family-base;
+  font-size: 14px !important;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: $transition-fast;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  background-color: var(--primary-color);
+  color: #fff;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  @include respond(sm) {
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-sm;
+  }
+}
+
+/* ----------------- Button Variants ----------------- */
+button[data-variant="primary"] {
+  @include button-style(var(--primary-color), #fff);
+}
+
+button[data-variant="secondary"] {
+  @include button-style(var(--secondary-color), #fff);
+}
+
+button[data-variant="success"] {
+  @include button-style(var(--success-color), #fff);
+}
+
+button[data-variant="danger"] {
+  @include button-style(var(--danger-color), #fff);
+}
+
+button[data-variant="warning"] {
+  @include button-style(var(--warning-color), #fff);
+}
+
+button[data-variant="info"] {
+  @include button-style(var(--info-color), #fff);
+}
+
+/* ----------------- Outline Buttons ----------------- */
+button[data-variant="outline-primary"] {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+
+  &:hover {
+    background: var(--primary-color);
+    color: #fff;
+  }
+}
+
+button[data-variant="outline-secondary"] {
+  background: transparent;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+
+  &:hover {
+    background: var(--secondary-color);
+    color: #fff;
+  }
+}
+
+/* ----------------- Rounded / Small / Large Variants ----------------- */
+button.small {
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+}
+
+button.large {
+  padding: $spacing-lg $spacing-xl;
+  font-size: $font-size-lg;
+  border-radius: $radius-lg;
+}
+
+
+/* ----------------- Nav button ----------------- */
+.nav-btn {
+  border: 1px solid rgba(255, 255, 255, 0.3); // subtle border to show shape
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.45);
+  }
+}
