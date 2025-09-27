@@ -19,7 +19,7 @@
   sans-serif;
   position: sticky; // sticky for desktop
   top: 0;
-  z-index: 1000;
+  z-index: 999;
 
   .brand {
     font-weight: 700;
@@ -157,7 +157,7 @@
     box-shadow: $shadow-lg;
     position: sticky; // sticky for desktop
     top: 0;
-    z-index: 1000;
+    z-index: 999;
 
     @include respond(md) {
       min-height: 56px;

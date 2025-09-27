@@ -1,3 +1,4 @@
+<div class="drawer-overlay" *ngIf="sidebarOpen" (click)="closeSidebar()"></div>
 <div>
   <app-header (toggleSidebar)="toggleSidebar()" [drawerOpen]="sidebarOpen"></app-header>
 
@@ -12,4 +13,3 @@
   </div>
 </div>
 
-<div class="drawer-overlay" *ngIf="sidebarOpen" (click)="closeSidebar()"></div>

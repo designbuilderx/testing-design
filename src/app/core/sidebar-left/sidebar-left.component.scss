@@ -6,7 +6,7 @@
   padding: 16px;
   font-family: 'Inter', Arial, sans-serif;
   transition: transform 0.3s ease;
-  z-index: 1000;
+  z-index: 1001;
 
   .section-title {
     font-weight: 600;
@@ -81,11 +81,11 @@
 @media (max-width: 1024px) {
   .sidebar-left {
     position: fixed;
+    top: 0;
     left: 0;
     height: 100%;
     transform: translateX(-100%);
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-    top: 0;
     .tree {
       max-height: 400px;
     }

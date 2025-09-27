@@ -82,8 +82,7 @@ button[data-variant="info"] {
   transition: var(--transition-fast);
 
   &:hover {
-    background: $color;
-    color: $surface-color;
+    border: $border-focus;
   }
 
   &:disabled {
