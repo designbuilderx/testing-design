@@ -133,9 +133,11 @@
 
 .header-mobile {
   display: none;
+
   @include respond(md) {
     display: block;
   }
+
   @include respond(sm) {
     display: block;
   }
@@ -150,6 +152,9 @@
     min-height: 64px; // desktop height
     width: 100%;
     box-shadow: $shadow-lg;
+    position: sticky; // sticky for desktop
+    top: 0;
+    z-index: 1000;
 
     @include respond(md) {
       min-height: 56px;
@@ -157,6 +162,11 @@
     }
 
     @include respond(sm) {
+      position: fixed; // fixed for mobile to prevent hide on scroll
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 56px;
       padding: $spacing-xs $spacing-sm;
     }
 
@@ -198,4 +208,15 @@
       }
     }
   }
+
+  /* Add top padding to content to avoid overlap with fixed toolbar on mobile */
+  @include respond(sm) {
+
+    body,
+    main,
+    .content {
+      padding-top: 56px; // matches toolbar height
+    }
+  }
+
 }
