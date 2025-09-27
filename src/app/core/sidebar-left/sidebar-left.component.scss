@@ -88,7 +88,7 @@
       }
 
       &.active {
-        background: #e0e7ff; // light indigo background
+        background: $primary-background-selection-light;
         font-weight: 600;
         color: $primary-color;
         border-radius: 6px;
