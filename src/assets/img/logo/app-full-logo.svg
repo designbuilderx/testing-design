@@ -1,0 +1,12 @@
+<svg width="250" height="50" viewBox="0 0 250 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle background -->
+  <circle cx="25" cy="25" r="20" fill="white"/>
+  
+  <!-- Arrow inside circle -->
+  <path d="M20 15 L30 25 L20 35 Z" fill="#1e40af"/> <!-- Blue matching header -->
+  
+  <!-- Text/logo label -->
+  <text x="60" y="32" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">
+    DesignX
+  </text>
+</svg>

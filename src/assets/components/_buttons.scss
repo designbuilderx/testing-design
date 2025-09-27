@@ -15,7 +15,7 @@ button {
   text-align: center;
   line-height: 1.2;
   background-color: var(--primary-color);
-  color: $surface-color;
+  color: $white;
   position: relative;
   height: 2.5rem;
 
@@ -45,31 +45,88 @@ button {
 
 /* ----------------- Variants ----------------- */
 button[data-variant="primary"] {
-  @include button-style(var(--primary-color), $surface-color);
+  @include button-style(var(--primary-color), $white);
 }
 
 button[data-variant="secondary"] {
-  @include button-style(var(--secondary-color), $surface-color);
+  @include button-style(var(--secondary-color), $white);
 }
 
 button[data-variant="success"] {
-  @include button-style(var(--success-color), $surface-color);
+  @include button-style(var(--success-color), $white);
 }
 
 button[data-variant="danger"] {
-  @include button-style(var(--danger-color), $surface-color);
+  @include button-style(var(--danger-color), $white);
 }
 
 button[data-variant="warning"] {
-  @include button-style(var(--warning-color), $surface-color);
+  @include button-style(var(--warning-color), $white);
 }
 
 button[data-variant="info"] {
-  @include button-style(var(--info-color), $surface-color);
+  @include button-style(var(--info-color), $white);
 }
 
+/* ----------------- Sizes ----------------- */
+button.small {
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+  height: 2rem;
+
+  @include respond(sm) {
+    height: 1.8rem;
+  }
+}
+
+button.large {
+  padding: $spacing-lg $spacing-xl;
+  font-size: $font-size-lg;
+  border-radius: $radius-lg;
+  height: 3rem;
+
+  @include respond(sm) {
+    height: 2.5rem;
+  }
+}
+
+/* ----------------- Full Width ----------------- */
+button.full-width {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @include respond(sm) {
+    font-size: $font-size-sm;
+    padding: $spacing-sm;
+  }
+}
+
+/* ----------------- Nav Button ----------------- */
+button.nav-btn {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  color: $white;
+  height: 2.5rem;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.45);
+  }
+
+  @include respond(sm) {
+    height: 2.2rem;
+  }
+}
+
+
 /* ----------------- Outline Buttons ----------------- */
-@mixin outline-button($color, $height: 2.5rem) {
+
+@mixin outline-button($color, $height: 2.2rem) {
   background: transparent;
   border: 1px solid $color;
   color: $color;
@@ -124,65 +181,10 @@ button[data-variant="outline-grey"] {
   @include outline-button($grey-600);
 }
 
-/* ----------------- Sizes ----------------- */
-button.small {
-  padding: $spacing-xs $spacing-sm;
-  font-size: $font-size-sm;
-  border-radius: $radius-sm;
-  height: 2rem;
-
-  @include respond(sm) {
-    height: 1.8rem;
-  }
-}
-
-button.large {
-  padding: $spacing-lg $spacing-xl;
-  font-size: $font-size-lg;
-  border-radius: $radius-lg;
-  height: 3rem;
-
-  @include respond(sm) {
-    height: 2.5rem;
-  }
-}
-
-/* ----------------- Full Width ----------------- */
-button.full-width {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  @include respond(sm) {
-    font-size: $font-size-sm;
-    padding: $spacing-sm;
-  }
-}
-
-/* ----------------- Nav Button ----------------- */
-button.nav-btn {
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.15);
-  color: $surface-color;
-  height: 2.5rem;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.35);
-  }
-
-  &.active {
-    background: rgba(255, 255, 255, 0.45);
-  }
-
-  @include respond(sm) {
-    height: 2.2rem;
-  }
-}
-
 /* ===========================
    Icon Buttons
    =========================== */
-@mixin icon-button($color, $hover-bg, $hover-color: $surface-color, $size: 2.5rem) {
+@mixin icon-button($color, $hover-bg, $hover-color: $white, $size: 2.2rem) {
   width: $size;
   height: $size;
   border-radius: 50%;

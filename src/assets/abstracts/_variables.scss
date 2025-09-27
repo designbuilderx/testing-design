@@ -5,19 +5,44 @@
    ======================================================= */
 
 /* ----------------- Base Colors ----------------- */
-$primary-color: #5b21b6;
-$secondary-color: #9333ea;
+
+// Primary color (main theme)
+$primary-color: #5b21b6;          // Base primary color
+$primary-light: #7c3aed;    // Lighter shade for hover, highlights
+$primary-dark: #4b1a99;     // Darker shade for active, shadows
+$primary-deep: #3a146f;     // Deep shade for strong contrast
+
+// Secondary color (optional complementary)
+$secondary-color: #1e40af;        // Blue, e.g., header background
+$secondary-light: #3b5fd3;  // Lighter blue for hover/accents
+$secondary-dark: #18306f;   // Dark blue for depth
+
+// Accent colors
+$accent: #facc15;           // Yellow for highlights or buttons
+$accent-light: #fde047;     
+$accent-dark: #b45309;
+
+
 $success-color: #10b981;
 $danger-color: #ef4444;
 $warning-color: #f59e0b;
 $info-color: #3b82f6;
 
 $background-color: #f6f7fb;
-$surface-color: #ffffff;
 $border-color: #e6e9ef;
 $text-color: #1f2937;
 $text-light: #6b7280;
 $text-highlight: $primary-color;
+
+// _variables.scss
+
+// Neutral colors
+$white: #ffffff;
+$black: #000000;
+$gray-light: #f3f4f6;
+$gray-medium: #d1d5db;
+$gray-dark: #4b5563;
+
 
 /* ----------------- Grey Colors ----------------- */
 $grey-100: #f9fafb; // lightest background
@@ -47,8 +72,6 @@ $spacing-xl: 4rem;
 
 
 /* ----------------- Derived Colors ----------------- */
-$primary-light: lighten($primary-color, 40%);
-$secondary-light: lighten($secondary-color, 40%);
 $background-light: lighten($background-color, 5%);
 $text-muted: lighten($text-color, 40%);
 $border-light: lighten($border-color, 20%);
@@ -100,7 +123,7 @@ $transition-slow: 0.5s ease-in-out;
 
   /* Background & Surface */
   --background-color: #{$background-color};
-  --surface-color: #{$surface-color};
+  --white-color: #{$white};
 
   /* Text & Borders */
   --text-color: #{$text-color};

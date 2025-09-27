@@ -1,4 +1,4 @@
-@import '../../../styles/variable.scss';
+@import '../../../assets/abstracts/variables';
 
 .sidebar-right {
   width: 440px;
@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: $font-family;
 
   /* Header */
   .preview-header {

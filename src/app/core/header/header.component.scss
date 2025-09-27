@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background-color: var(--primary-color, #5b21b6);
+  background-color: $primary-color;
   color: #fff;
   gap: 16px;
   flex-wrap: wrap;
@@ -25,6 +25,9 @@
     font-weight: 700;
     font-size: 1.2rem;
     white-space: nowrap;
+    .logo-desktop {
+      height: 40px;
+    }
   }
 
   nav {
@@ -151,7 +154,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $surface-color;
+    background-color: $white; // primary color for toolbar
     min-height: 64px; // desktop height
     width: 100%;
     box-shadow: $shadow-lg;
@@ -171,6 +174,9 @@
       right: 0;
       min-height: 56px;
       padding: $spacing-xs $spacing-sm;
+      .logo-mobile {
+        width: 100px;
+      }
     }
 
     /* ----------------- Toolbar Sections ----------------- */

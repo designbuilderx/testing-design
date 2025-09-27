@@ -1,9 +1,10 @@
 <!-- Toolbar desktop -->
 <header class="app-header">
-  <div class="brand">Component Explorer</div>
+  <div class="brand"><img src="../../../assets/img/logo/app-full-logo.svg" alt="Design BuilderX" class="logo-desktop"/></div>
 
   <!-- Navigation (desktop only) -->
   <nav class="nav">
+    
     <button routerLink="/home" routerLinkActive="active" data-variant="primary" class="nav-btn">
       Home
     </button>
@@ -50,9 +51,7 @@
       <button class="drawer-btn" data-variant="outline-grey" (click)="onDrawerToggle()">
         <i class="fa-solid fa-bars"></i>
       </button>
-       <button data-variant="outline-grey" routerLink="/home">
-      <i class="fa-regular fa-house"></i>
-      </button>
+        <img src="../../../assets/img/logo/app-mobile-logo.svg" alt="Design BuilderX" class="logo-mobile" routerLink="/home"/>
     </div>
     <div class="toolbar__right">
       <button data-variant="outline-grey">
