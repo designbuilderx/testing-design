@@ -1,16 +1,25 @@
+<!-- Toolbar desktop -->
 <header class="app-header">
   <div class="brand">Component Explorer</div>
 
   <!-- Navigation (desktop only) -->
   <nav class="nav">
-    <button routerLink="/home" routerLinkActive="active" data-variant="primary" class="nav-btn">Home</button>
-    <button routerLink="/builder" routerLinkActive="active" class="nav-btn">Template Builder</button>
+    <button routerLink="/home" routerLinkActive="active" data-variant="primary" class="nav-btn">
+      Home
+    </button>
+    <button routerLink="/builder" routerLinkActive="active" class="nav-btn">
+      Template Builder
+    </button>
     <button routerLink="/editor" routerLinkActive="active" class="nav-btn">Live Editor</button>
-    <button routerLink="/dashboard" routerLinkActive="active" class="nav-btn">Platform Summary</button>
+    <button routerLink="/dashboard" routerLinkActive="active" class="nav-btn">
+      Platform Summary
+    </button>
   </nav>
 
   <!-- Hamburger button (mobile/tablet) -->
-  <button class="drawer-btn with-icon" data-variant="secondary" (click)="onDrawerToggle()">{{ drawerOpen ? '✖' : '☰' }}</button>
+  <button class="drawer-btn with-icon" data-variant="secondary" (click)="onDrawerToggle()">
+    {{ drawerOpen ? '✖' : '☰' }}
+  </button>
 
   <div class="search-wrap">
     <input
@@ -32,4 +41,23 @@
       <div class="color-swatch" [style.background-color]="primaryColor"></div>
     </div>
   </div> -->
+</header>
+
+<!-- Toolbar (mobile/tablet) -->
+<header class="header-mobile">
+  <div class="toolbar">
+    <div class="toolbar__left">
+      <button class="drawer-btn with-icon" data-variant="outline-primary" (click)="onDrawerToggle()">
+        {{ drawerOpen ? '✖' : '☰' }}
+      </button>
+    </div>
+     <div class="toolbar__right">
+        <button data-variant="outline-primary">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button data-variant="outline-primary">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+  </div>
 </header>

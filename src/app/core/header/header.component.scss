@@ -1,6 +1,12 @@
-@import '../../../styles/variable.scss';
+@import '../../../assets/abstracts/variables.scss';
+@import '../../../assets/abstracts/breakpoints.scss';
+@import '../../../assets/abstracts/mixins.scss';
 
 .app-header {
+  @include respond (sm) {
+    display: none;
+  }
+
   display: flex;
   align-items: center;
   padding: 10px 20px;
@@ -8,7 +14,9 @@
   color: #fff;
   gap: 16px;
   flex-wrap: wrap;
-  font-family: $font-family, Arial, sans-serif;
+  font-family: $font-family-base,
+  Arial,
+  sans-serif;
 
   .brand {
     font-weight: 700;
@@ -119,6 +127,75 @@
 
     nav {
       // display: none; // hide nav in mobile/tablet
+    }
+  }
+}
+
+.header-mobile {
+  display: none;
+  @include respond(md) {
+    display: block;
+  }
+  @include respond(sm) {
+    display: block;
+  }
+
+  /* ================== THEME-ALIGNED TOOLBAR ================== */
+  /* ================== THEME-ALIGNED MUI-STYLE TOOLBAR ================== */
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $surface-color;
+    min-height: 64px; // desktop height
+    width: 100%;
+    box-shadow: $shadow;
+
+    @include respond(md) {
+      min-height: 56px;
+      padding: $spacing-xs $spacing-md;
+    }
+
+    @include respond(sm) {
+      padding: $spacing-xs $spacing-sm;
+    }
+
+    /* ----------------- Toolbar Sections ----------------- */
+    &__left,
+    &__center,
+    &__right {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+    }
+
+    &__center {
+      flex: 1;
+      justify-content: center;
+
+      @include respond(sm) {
+        justify-content: flex-start;
+        margin: $spacing-xs 0;
+      }
+    }
+
+    &__right {
+      justify-content: flex-end;
+
+      @include respond(sm) {
+        justify-content: flex-start;
+        margin-top: $spacing-xs;
+      }
+    }
+
+    /* ----------------- Title / Logo ----------------- */
+    &__title {
+      font-size: $font-size-lgx; // 22px
+      font-weight: 600;
+
+      @include respond(sm) {
+        font-size: $font-size-base;
+      }
     }
   }
 }

@@ -3,7 +3,6 @@
 .sidebar-left {
   width: 260px;
   background: #fff;
-  border-right: 1px solid #e0e0e0;
   padding: 16px;
   font-family: 'Inter', Arial, sans-serif;
   transition: transform 0.3s ease;
@@ -90,12 +89,11 @@
 @media (max-width: 1024px) {
   .sidebar-left {
     position: fixed;
-    top: 168px;
     left: 0;
     height: 100%;
     transform: translateX(-100%);
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-
+    top: 0;
     .tree {
       max-height: 400px;
     }
