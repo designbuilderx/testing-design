@@ -1,28 +1,21 @@
 <div class="sidebar-left" [class.open]="drawerOpen">
-  <h4 class="section-title">Frameworks</h4>
-  <div class="frameworks">
-    <label *ngFor="let fw of frameworks" class="fw-radio">
-      <input
-        type="radio"
-        name="framework"
-        [value]="fw"
-        [checked]="fw === selectedFramework"
-        (change)="selectFramework(fw)"
-      />
-      {{ fw }}
-    </label>
-  </div>
-
   <h4 class="section-title">Categories</h4>
   <div class="tree">
     <ul>
-      <li *ngFor="let cat of componentsTree">
-        <span class="toggle" (click)="toggleCategory(cat)">{{ cat.name }}</span>
-        <ul [style.display]="cat.expanded ? 'block' : 'none'">
+      <li *ngFor="let node of componentsTree">
+        <!-- Category -->
+        <span class="toggle" [class.expanded]="node.expanded" (click)="toggleCategory(node)">
+          <i class="fas fa-chevron-right" [class.rotated]="node.expanded"></i>
+          {{ node.name }}
+        </span>
+
+        <!-- Children -->
+        <ul [style.display]="node.expanded ? 'block' : 'none'">
           <li
-            *ngFor="let comp of cat.children"
+            *ngFor="let comp of node.children"
             class="component-item"
-            (click)="selectComponent(comp, cat.name)"
+            [class.active]="comp === selectedComponent"
+            (click)="selectComponent(comp, node.name)"
           >
             {{ comp.name }}
           </li>

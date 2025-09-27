@@ -8,7 +8,7 @@ export class PreviewService {
   private selectedComponent = new BehaviorSubject<any>(null);
   selectedComponent$ = this.selectedComponent.asObservable();
 
-  private previewContent = new BehaviorSubject<string>('Select a component to preview');
+  private previewContent = new BehaviorSubject<string | undefined>('Select a component to preview');
   previewContent$ = this.previewContent.asObservable();
 
   private componentColorSubject = new BehaviorSubject<string>('#5b21b6');
@@ -18,7 +18,7 @@ export class PreviewService {
     this.selectedComponent.next(component);
   }
 
-  setPreview(content: string) {
+  setPreview(content: string | undefined) {
     this.previewContent.next(content);
   }
 

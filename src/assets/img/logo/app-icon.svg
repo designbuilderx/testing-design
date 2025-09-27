@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle background in blue -->
+  <circle cx="25" cy="25" r="20" fill="#1e40af"/>
+  
+  <!-- Arrow inside circle in white -->
+  <path d="M20 15 L30 25 L20 35 Z" fill="white"/>
+</svg>

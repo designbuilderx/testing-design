@@ -1,4 +1,6 @@
- export const componentsTree = [
+import { TreeNode } from "../models/tree-node";
+
+ export const componentsTree: TreeNode[] = [
   {
     name: 'Form Controls',
     expanded: true,

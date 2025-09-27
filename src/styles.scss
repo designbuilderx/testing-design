@@ -1,4 +1,23 @@
-@import './styles/variable.scss';
+// abstracts
+@import './assets/abstracts/variables';
+@import './assets/abstracts/mixins';
+@import './assets/abstracts/breakpoints';
+
+// base
+@import './assets/base/reset';
+@import './assets/base/typography';
+@import './assets/base/utilities';
+
+// components
+@import './assets/components/buttons';
+@import './assets/components/forms';
+@import './assets/components/cards';
+
+// layout
+@import './assets/layout/grid';
+@import './assets/layout/spacing';
+
+
 
 /* 1. Box-sizing globally for predictable layouts */
 *,
@@ -13,21 +32,29 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   line-height: 1.5;
   background-color: #fff;
-  color: #333;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* 3. Normalize headings & paragraphs */
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
   margin: 0;
-  font-weight: inherit;
-  font-size: inherit;
+  font-family: $font-family-heading;
+  color: $text-primary;
+  line-height: $line-height-base;
 }
 
 /* 4. Normalize lists */
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -40,29 +67,63 @@ a {
 }
 
 /* 6. Responsive images & media */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* 7. Forms inherit font & remove browser defaults */
-input, button, textarea, select {
-  font: inherit;
-  line-height: 1.15;
-  margin: 0;
-  outline: none;
+/* ----------------- Paragraphs & Labels ----------------- */
+p, span, label {
+  color: $text-secondary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
 }
 
-/* 8. Buttons: remove default borders/backgrounds & use pointer */
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
+.text-muted, .caption {
+  color: $text-tertiary;
+  font-size: $font-size-sm;
 }
 
-/* 9. Tables: collapse borders */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+.text-accent {
+  color: $text-accent;
+  font-weight: 600;
+}
+/* ----------------- Inputs ----------------- */
+input, textarea, select {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  padding: $spacing-sm;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  transition: border $transition-fast, box-shadow $transition-fast;
+  color: $text-primary;
+  background-color: $white;
+
+  &:focus {
+    border: 1px solid $primary-color;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $text-placeholder;
+  }
+
+  &:disabled {
+    background-color: $gray-light;
+    color: $text-disabled;
+  }
+}
+
+/* ===========================
+   Mobile Tap Highlight Fix
+   =========================== */
+/* ----------------- Remove Mobile Tap Highlight ----------------- */
+* {
+  -webkit-tap-highlight-color: transparent; // removes blue flash on tap
 }

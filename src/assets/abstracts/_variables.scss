@@ -1,0 +1,179 @@
+/* =======================================================
+   🎨 Design Tokens (SCSS + CSS Variables)
+   This file defines the base design system tokens such as
+   colors, spacing, typography, shadows, etc.
+   ======================================================= */
+
+/* ----------------- Base Colors ----------------- */
+
+// Primary color (main theme)
+$primary-color: #5b21b6;          // Base primary color
+$primary-light: #7c3aed;    // Lighter shade for hover, highlights
+$primary-dark: #4b1a99;     // Darker shade for active, shadows
+$primary-deep: #3a146f;     // Deep shade for strong contrast
+
+// Secondary color (optional complementary)
+$secondary-color: #1e40af;        // Blue, e.g., header background
+$secondary-light: #3b5fd3;  // Lighter blue for hover/accents
+$secondary-dark: #18306f;   // Dark blue for depth
+
+// Accent colors
+$accent: #facc15;           // Yellow for highlights or buttons
+$accent-light: #fde047;     
+$accent-dark: #b45309;
+
+
+$success-color: #10b981;
+$danger-color: #ef4444;
+$warning-color: #f59e0b;
+$info-color: #3b82f6;
+
+$background-color: #f6f7fb;
+$border-color: #e6e9ef;
+$text-primary: #1f2937;
+$text-light: #6b7280;
+$text-highlight: $primary-color;
+
+// _variables.scss
+
+// Neutral colors
+$white: #ffffff;
+$black: #000000;
+$gray-light: #f3f4f6;
+$gray-medium: #d1d5db;
+$gray-dark: #4b5563;
+
+
+/* ----------------- Grey Colors ----------------- */
+$grey-100: #f9fafb; // lightest background
+$grey-200: #f3f4f6; 
+$grey-300: #e5e7eb;
+$grey-400: #d1d5db; 
+$grey-500: #9ca3af; // medium / text-muted
+$grey-600: #6b7280; // darker text
+$grey-700: #4b5563; 
+$grey-800: #374151; 
+$grey-900: #1f2937; // darkest, almost black
+
+
+/* ----------------- Overlay Colors ----------------- */
+$overlay-light: rgba(0, 0, 0, 0.2);  // 20% black
+$overlay-medium: rgba(0, 0, 0, 0.4); // 40% black
+$overlay-dark: rgba(0, 0, 0, 0.6);   // 60% black
+
+/* ----------------- Text Colors ----------------- */
+
+/* Primary text (headings, main content) */
+$text-primary: #212121;      // dark gray (not pure black)
+
+/* Secondary text (body text, nodes, labels) */
+$text-secondary: #424242;    // medium dark gray
+
+/* Tertiary / muted text (sub-nodes, hints, captions) */
+$text-tertiary: #616161;     // lighter gray
+
+/* Disabled / inactive text */
+$text-disabled: #9e9e9e;     // muted gray
+
+/* Placeholder text / hints */
+$text-placeholder: #bdbdbd;  
+
+/* Accent / highlight text (links, hover, active) */
+$text-accent: $primary-color; // your purple primary
+$text-success: $success-color;
+$text-danger: $danger-color;
+$text-warning: $warning-color;
+$text-info: $info-color;
+
+
+/* ----------------- Spacing ----------------- */
+$spacing-unit: 1rem;
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+$spacing-xl: 4rem;
+
+
+/* ----------------- Derived Colors ----------------- */
+$background-light: lighten($background-color, 5%);
+$text-muted: lighten($text-primary, 40%);
+$border-light: lighten($border-color, 20%);
+
+
+/* ----------------- Typography ----------------- */
+$font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+$font-family-heading: 'Poppins', sans-serif;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-lgx: 22px; // between lg and xl
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+
+$line-height-sm: 1.3;
+$line-height-base: 1.5;
+$line-height-lg: 1.7;
+
+
+/* ----------------- UI Tokens ----------------- */
+$radius-sm: 4px;
+$radius: 8px;
+$radius-lg: 12px;
+
+$shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+$shadow: 0 2px 8px rgba(0,0,0,0.05);
+$shadow-lg: 0 4px 16px rgba(0,0,0,0.1);
+
+// Shadow on action buttons focus state
+$border-focus: 1px solid $primary-color; // semi-transparent primary color
+
+$transition-fast: 0.2s ease-in-out;
+$transition-base: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+
+/* ----------------- CSS Variables (Runtime / Dynamic Theme) ----------------- */
+:root {
+  /* Base Colors */
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --success-color: #{$success-color};
+  --danger-color: #{$danger-color};
+  --warning-color: #{$warning-color};
+  --info-color: #{$info-color};
+
+  /* Background & Surface */
+  --background-color: #{$background-color};
+  --white-color: #{$white};
+
+  /* Text & Borders */
+  --text-color: #{$text-primary};
+  --text-muted: #{$text-muted};
+  --border-color: #{$border-color};
+  --border-light: #{$border-light};
+
+  /* Radii */
+  --radius-sm: #{$radius-sm};
+  --radius: #{$radius};
+  --radius-lg: #{$radius-lg};
+
+  /* Shadows */
+  --shadow-sm: #{$shadow-sm};
+  --shadow: #{$shadow};
+  --shadow-lg: #{$shadow-lg};
+
+  /* Spacing */
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+
+  /* Overlays */
+  --overlay-light: rgba(0, 0, 0, 0.2);
+  --overlay-medium: rgba(0, 0, 0, 0.4);
+  --overlay-dark: rgba(0, 0, 0, 0.6);
+}

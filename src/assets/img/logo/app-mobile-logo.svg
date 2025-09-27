@@ -1,0 +1,12 @@
+<svg width="120" height="50" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle background in blue -->
+  <circle cx="25" cy="25" r="20" fill="#1e40af"/>
+  
+  <!-- Arrow inside circle in white -->
+  <path d="M20 15 L30 25 L20 35 Z" fill="white"/>
+  
+  <!-- Text next to icon -->
+  <text x="55" y="32" font-family="Arial, sans-serif" font-size="18" fill="#1e40af" font-weight="bold">
+    DBX
+  </text>
+</svg>

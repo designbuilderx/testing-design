@@ -1,0 +1,278 @@
+/* ================== BUTTON THEME ================== */
+
+/* ----------------- Base Button ----------------- */
+button {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: $transition-fast;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  background-color: var(--primary-color);
+  color: $white;
+  position: relative;
+  height: 2.5rem;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @include respond(sm) {
+    font-size: $font-size-sm !important;
+    padding: $spacing-xs $spacing-sm !important;
+    height: 2.2rem;
+    // -webkit-tap-highlight-color: transparent; // removes mobile blue overlay
+    // outline: none; // removes desktop outline
+    
+  }
+}
+
+/* ----------------- Focus state for button ----------------- */
+// button:focus {
+//   box-shadow: 0 0 0 3px rgba(241, 33, 182, 0.5); // custom focus style
+// }
+
+/* ----------------- Variants ----------------- */
+button[data-variant="primary"] {
+  @include button-style(var(--primary-color), $white);
+}
+
+button[data-variant="secondary"] {
+  @include button-style(var(--secondary-color), $white);
+}
+
+button[data-variant="success"] {
+  @include button-style(var(--success-color), $white);
+}
+
+button[data-variant="danger"] {
+  @include button-style(var(--danger-color), $white);
+}
+
+button[data-variant="warning"] {
+  @include button-style(var(--warning-color), $white);
+}
+
+button[data-variant="info"] {
+  @include button-style(var(--info-color), $white);
+}
+
+/* ----------------- Sizes ----------------- */
+button.small {
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+  height: 2rem;
+
+  @include respond(sm) {
+    height: 1.8rem;
+  }
+}
+
+button.large {
+  padding: $spacing-lg $spacing-xl;
+  font-size: $font-size-lg;
+  border-radius: $radius-lg;
+  height: 3rem;
+
+  @include respond(sm) {
+    height: 2.5rem;
+  }
+}
+
+/* ----------------- Full Width ----------------- */
+button.full-width {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @include respond(sm) {
+    font-size: $font-size-sm;
+    padding: $spacing-sm;
+  }
+}
+
+/* ----------------- Nav Button ----------------- */
+button.nav-btn {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  color: $white;
+  height: 2.5rem;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.45);
+  }
+
+  @include respond(sm) {
+    height: 2.2rem;
+  }
+}
+
+
+/* ----------------- Outline Buttons ----------------- */
+
+@mixin outline-button($color, $height: 2.2rem) {
+  background: transparent;
+  border: 1px solid $color;
+  color: $color;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: $height;
+  padding: 0 $spacing-md;
+  transition: var(--transition-fast);
+
+  &:hover {
+    border: $border-focus;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @include respond(sm) {
+    height: 2.2rem;
+    padding: 0 $spacing-sm;
+  }
+}
+
+button[data-variant="outline-primary"] {
+  @include outline-button(var(--primary-color));
+}
+
+button[data-variant="outline-secondary"] {
+  @include outline-button(var(--secondary-color));
+}
+
+button[data-variant="outline-success"] {
+  @include outline-button(var(--success-color));
+}
+
+button[data-variant="outline-danger"] {
+  @include outline-button(var(--danger-color));
+}
+
+button[data-variant="outline-warning"] {
+  @include outline-button(var(--warning-color));
+}
+
+button[data-variant="outline-info"] {
+  @include outline-button(var(--info-color));
+}
+
+button[data-variant="outline-grey"] {
+  @include outline-button($grey-600);
+}
+
+/* ===========================
+   Icon Buttons
+   =========================== */
+@mixin icon-button($color, $hover-bg, $hover-color: $white, $size: 2.2rem) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: $color;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+
+  i,
+  svg {
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    background: $hover-bg;
+    color: $hover-color;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @include respond(sm) {
+    width: $size - 0.5rem;
+    height: $size - 0.5rem;
+
+    i,
+    svg {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* Icon Button Variants */
+button[data-variant="icon-primary"] {
+  @include icon-button(var(--primary-color), var(--primary-color));
+}
+
+button[data-variant="icon-secondary"] {
+  @include icon-button(var(--secondary-color), var(--secondary-color));
+}
+
+button[data-variant="icon-success"] {
+  @include icon-button(var(--success-color), var(--success-color));
+}
+
+button[data-variant="icon-danger"] {
+  @include icon-button(var(--danger-color), var(--danger-color));
+}
+
+button[data-variant="icon-warning"] {
+  @include icon-button(var(--warning-color), var(--warning-color));
+}
+
+button[data-variant="icon-info"] {
+  @include icon-button(var(--info-color), var(--info-color));
+}
+
+button[data-variant="icon-grey"] {
+  @include icon-button($grey-600, $grey-600);
+}
+
+/* ----------------- Loading State ----------------- */
+button.loading {
+  pointer-events: none; // disable clicks
+  opacity: 0.8;
+
+  &::after {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: 0.5rem;
+    display: inline-block;
+  }
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
