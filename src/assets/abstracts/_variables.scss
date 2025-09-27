@@ -18,6 +18,17 @@ $border-color: #e6e9ef;
 $text-color: #1f2937;
 $text-light: #6b7280;
 
+/* ----------------- Grey Colors ----------------- */
+$grey-100: #f9fafb; // lightest background
+$grey-200: #f3f4f6; 
+$grey-300: #e5e7eb;
+$grey-400: #d1d5db; 
+$grey-500: #9ca3af; // medium / text-muted
+$grey-600: #6b7280; // darker text
+$grey-700: #4b5563; 
+$grey-800: #374151; 
+$grey-900: #1f2937; // darkest, almost black
+
 
 /* ----------------- Overlay Colors ----------------- */
 $overlay-light: rgba(0, 0, 0, 0.2);  // 20% black

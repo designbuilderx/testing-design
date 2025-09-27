@@ -149,7 +149,7 @@
     background-color: $surface-color;
     min-height: 64px; // desktop height
     width: 100%;
-    box-shadow: $shadow;
+    box-shadow: $shadow-lg;
 
     @include respond(md) {
       min-height: 56px;

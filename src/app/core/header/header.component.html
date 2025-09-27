@@ -47,17 +47,17 @@
 <header class="header-mobile">
   <div class="toolbar">
     <div class="toolbar__left">
-      <button class="drawer-btn with-icon" data-variant="outline-primary" (click)="onDrawerToggle()">
-        {{ drawerOpen ? '✖' : '☰' }}
+      <button class="drawer-btn" data-variant="outline-grey" (click)="onDrawerToggle()">
+        <i class="fa-solid fa-bars"></i>
       </button>
     </div>
-     <div class="toolbar__right">
-        <button data-variant="outline-primary">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <button data-variant="outline-primary">
-          <i class="fa-solid fa-gear"></i>
-        </button>
-      </div>
+    <div class="toolbar__right">
+      <button data-variant="outline-grey">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <button data-variant="outline-grey">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+    </div>
   </div>
 </header>
