@@ -1,23 +1,35 @@
-@import '../styles/variable.scss';
-
-:host {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: var(--font-family);
-}
+@import '../assets/abstracts/variables';
 
 .workspace {
-  display: grid;
-  grid-template-columns: 240px 1fr 440px; // Left, center, right
-  height: calc(100vh - 60px); // minus header height
-  min-height: 0;
-  overflow: hidden; // prevent scrollbars
+  display: flex;
+  height: 100vh;
+
+  main.center {
+    flex: 1;
+    overflow: auto;
+    padding: 16px;
+    transition: margin-left 0.3s ease;
+  }
+
+  @media (max-width: 1024px) {
+
+    /* On tablet/mobile, sidebar-left is a drawer, so main takes full width */
+    main.center {
+      margin-left: 0 !important;
+    }
+
+    .hide-on-mobile {
+      display: none;
+    }
+  }
 }
 
-.center {
-  padding: 16px;
-  background-color: var(--background);
-  overflow-y: auto;
-  min-height: 0;
+.drawer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $overlay-light;
+  z-index: 1000;
 }

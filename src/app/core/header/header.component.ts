@@ -1,5 +1,4 @@
-// src/app/core/header/header.component.ts
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,17 +13,26 @@ import { ThemeService } from '../../services/theme-service';
 })
 export class HeaderComponent {
   search = '';
-  primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim() || '#5b21b6';
+  primaryColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--primary-color')
+    .trim() || '#5b21b6';
+
+  @Input() drawerOpen = false;
+
+  @Output() toggleSidebar = new EventEmitter<void>();
 
   constructor(private themeSvc: ThemeService) {}
 
   onSearch() {
-    // TODO: send search text via a SearchService or emit an event
     console.log('search:', this.search);
   }
 
   onColorChange(color: string) {
     this.primaryColor = color;
-    this.themeSvc.setPrimaryColor(color); // updates document root
+    this.themeSvc.setPrimaryColor(color);
+  }
+
+  onDrawerToggle() {
+    this.toggleSidebar.emit();
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor, NgForOf } from '@angular/common';
 import { PreviewService } from '../../services/preivew';
 import { Observable } from 'rxjs';
 import { SafeHtmlPipe } from '../../utils/safe-html.pipes';
@@ -7,7 +7,7 @@ import { SafeHtmlPipe } from '../../utils/safe-html.pipes';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, SafeHtmlPipe],
+  imports: [CommonModule, SafeHtmlPipe, NgFor, NgForOf],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -18,6 +18,7 @@ export class HomeComponent {
   constructor(private previewService: PreviewService) {
     this.selectedComponent$ = this.previewService.selectedComponent$;
   }
+  numbersArray = Array.from({ length: 100 }, (_, i) => i + 1); // Array of numbers from 1 to 100
 
   getVariants(component: any) {
     if (!component) return [];

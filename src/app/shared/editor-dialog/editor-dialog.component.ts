@@ -5,12 +5,11 @@ import saveAs from 'file-saver';
 import JSZip from 'jszip';
 import { ButtonThemeViewContent } from '../../utils/btn-file';
 import { FormsModule } from '@angular/forms';
-import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 @Component({
   selector: 'app-editor-dialog',
   standalone: true,
-  imports: [FormsModule, MonacoEditorModule],
+  imports: [FormsModule],
   templateUrl: './editor-dialog.component.html',
   styleUrl: './editor-dialog.component.scss'
 })

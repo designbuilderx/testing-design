@@ -1,4 +1,25 @@
-@import './styles/variable.scss';
+// @import './styles/variable.scss';
+
+// abstracts
+@import './assets/abstracts/variables';
+@import './assets/abstracts/mixins';
+@import './assets/abstracts/breakpoints';
+
+// base
+@import './assets/base/reset';
+@import './assets/base/typography';
+@import './assets/base/utilities';
+
+// components
+@import './assets/components/buttons';
+@import './assets/components/forms';
+@import './assets/components/cards';
+
+// layout
+@import './assets/layout/grid';
+@import './assets/layout/spacing';
+
+
 
 /* 1. Box-sizing globally for predictable layouts */
 *,
@@ -19,7 +40,12 @@ body {
 }
 
 /* 3. Normalize headings & paragraphs */
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
   margin: 0;
   font-weight: inherit;
@@ -27,7 +53,8 @@ p {
 }
 
 /* 4. Normalize lists */
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -40,29 +67,79 @@ a {
 }
 
 /* 6. Responsive images & media */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
 /* 7. Forms inherit font & remove browser defaults */
-input, button, textarea, select {
-  font: inherit;
-  line-height: 1.15;
-  margin: 0;
-  outline: none;
-}
+// input, button, textarea, select {
+//   font: inherit;
+//   line-height: 1.15;
+//   margin: 0;
+//   outline: none;
+// }
 
-/* 8. Buttons: remove default borders/backgrounds & use pointer */
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
+// /* 8. Buttons: remove default borders/backgrounds & use pointer */
+// button {
+//   border: none;
+//   background: none;
+//   cursor: pointer;
+// }
 
 /* 9. Tables: collapse borders */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+
+/* ===========================
+   Mobile Tap Highlight Fix
+   =========================== */
+/* ----------------- Remove Mobile Tap Highlight ----------------- */
+* {
+  -webkit-tap-highlight-color: transparent; // removes blue flash on tap
+}
+
+// /* ----------------- Focus Styles for Accessibility ----------------- */
+// button:focus,
+// a:focus,
+// input:focus,
+// textarea:focus,
+// select:focus {
+//   outline: none; // remove default outline
+//   border: $border-focus; // custom focus ring
+//   border-radius: $radius; // optional: match your button/element radius
+// }
+
+// /* ----------------- Toolbar Focus ----------------- */
+// .toolbar:focus-within {
+//   box-shadow: $border-focus; // subtle ring around toolbar when focused
+// }
+
+// /* ----------------- Icon Buttons ----------------- */
+// button.icon-btn:focus {
+//   box-shadow: $border-focus;
+// }
+
+// /* ----------------- Remove unwanted mobile blue highlight for other elements ----------------- */
+// ul:focus,
+// li:focus {
+//   outline: none;
+//   box-shadow: $border-focus;
+// }
+
+// /* Optional: smoother transition for focus state */
+// button,
+// a,
+// input,
+// textarea,
+// select {
+//   transition: box-shadow 0.2s ease-in-out;
+// }
