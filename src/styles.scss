@@ -1,5 +1,3 @@
-// @import './styles/variable.scss';
-
 // abstracts
 @import './assets/abstracts/variables';
 @import './assets/abstracts/mixins';
@@ -34,7 +32,8 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   line-height: 1.5;
   background-color: #fff;
-  color: #333;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -48,8 +47,9 @@ h5,
 h6,
 p {
   margin: 0;
-  font-weight: inherit;
-  font-size: inherit;
+  font-family: $font-family-heading;
+  color: $text-primary;
+  line-height: $line-height-base;
 }
 
 /* 4. Normalize lists */
@@ -77,27 +77,48 @@ svg {
   height: auto;
 }
 
-/* 7. Forms inherit font & remove browser defaults */
-// input, button, textarea, select {
-//   font: inherit;
-//   line-height: 1.15;
-//   margin: 0;
-//   outline: none;
-// }
-
-// /* 8. Buttons: remove default borders/backgrounds & use pointer */
-// button {
-//   border: none;
-//   background: none;
-//   cursor: pointer;
-// }
-
-/* 9. Tables: collapse borders */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/* ----------------- Paragraphs & Labels ----------------- */
+p, span, label {
+  color: $text-secondary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
 }
 
+.text-muted, .caption {
+  color: $text-tertiary;
+  font-size: $font-size-sm;
+}
+
+.text-accent {
+  color: $text-accent;
+  font-weight: 600;
+}
+/* ----------------- Inputs ----------------- */
+input, textarea, select {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  padding: $spacing-sm;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  transition: border $transition-fast, box-shadow $transition-fast;
+  color: $text-primary;
+  background-color: $white;
+
+  &:focus {
+    border: 1px solid $primary-color;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $text-placeholder;
+  }
+
+  &:disabled {
+    background-color: $gray-light;
+    color: $text-disabled;
+  }
+}
 
 /* ===========================
    Mobile Tap Highlight Fix
@@ -106,40 +127,3 @@ table {
 * {
   -webkit-tap-highlight-color: transparent; // removes blue flash on tap
 }
-
-// /* ----------------- Focus Styles for Accessibility ----------------- */
-// button:focus,
-// a:focus,
-// input:focus,
-// textarea:focus,
-// select:focus {
-//   outline: none; // remove default outline
-//   border: $border-focus; // custom focus ring
-//   border-radius: $radius; // optional: match your button/element radius
-// }
-
-// /* ----------------- Toolbar Focus ----------------- */
-// .toolbar:focus-within {
-//   box-shadow: $border-focus; // subtle ring around toolbar when focused
-// }
-
-// /* ----------------- Icon Buttons ----------------- */
-// button.icon-btn:focus {
-//   box-shadow: $border-focus;
-// }
-
-// /* ----------------- Remove unwanted mobile blue highlight for other elements ----------------- */
-// ul:focus,
-// li:focus {
-//   outline: none;
-//   box-shadow: $border-focus;
-// }
-
-// /* Optional: smoother transition for focus state */
-// button,
-// a,
-// input,
-// textarea,
-// select {
-//   transition: box-shadow 0.2s ease-in-out;
-// }

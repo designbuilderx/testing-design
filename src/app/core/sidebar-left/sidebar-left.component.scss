@@ -7,18 +7,15 @@
   font-family: 'Inter', Arial, sans-serif;
   transition: transform 0.3s ease;
   z-index: 1001;
-  position: fixed;
-  top: 0;
-  left: 0;
   height: 100%;
-  transform: translateX(-100%);
+  overflow: auto;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
 
   .section-title {
     font-weight: 600;
     font-size: 0.95rem;
     margin-bottom: 12px;
-    color: #3c3c3c;
+    color: $text-primary;
   }
 
   .frameworks {
@@ -46,14 +43,13 @@
 
   /* Tree view */
   .tree {
-    max-height: calc(100vh - 200px);
     overflow: auto;
     font-family: Arial, sans-serif;
     font-size: 0.95rem;
 
     ul {
       list-style: none;
-      padding-left: 20px;
+      padding-left: 10px;
       margin: 0;
     }
 
@@ -67,16 +63,14 @@
     /* Category */
     .toggle {
       font-weight: 600;
-      color: #222;
+      color: $text-primary;
 
-      &::before {
-        content: '▶';
-        display: inline-block;
-        margin-right: 6px;
+      i {
         transition: transform 0.2s ease;
+        color: $text-secondary;
       }
 
-      &.expanded::before {
+      i.rotated {
         transform: rotate(90deg);
       }
     }
@@ -85,35 +79,35 @@
     .component-item {
       padding-left: 16px;
       font-size: 0.9rem;
-      color: #444;
+      color: $text-secondary;
       transition: color 0.2s, font-weight 0.2s;
 
       &:hover {
-        color: #1e40af; // indigo-800
+        color: $primary-color; // indigo-800
         font-weight: 600;
       }
 
       &.active {
         background: #e0e7ff; // light indigo background
         font-weight: 600;
-        color: #1e40af;
+        color: $primary-color;
         border-radius: 6px;
       }
     }
 
     /* Scrollbar styling */
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
+    // &::-webkit-scrollbar {
+    //   width: 6px;
+    // }
 
-    &::-webkit-scrollbar-thumb {
-      background: #cbd5e1; // gray-300
-      border-radius: 4px;
-    }
+    // &::-webkit-scrollbar-thumb {
+    //   background: #cbd5e1; // gray-300
+    //   border-radius: 4px;
+    // }
 
-    &::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8; // gray-400
-    }
+    // &::-webkit-scrollbar-thumb:hover {
+    //   background: #94a3b8; // gray-400
+    // }
   }
 
 }
@@ -121,8 +115,13 @@
 /* Drawer for mobile/tablet */
 @media (max-width: 1024px) {
   .sidebar-left {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+
     .tree {
-      max-height: 400px;
+      // max-height: 400px;
     }
   }
 

@@ -5,6 +5,7 @@
       <li *ngFor="let node of componentsTree">
         <!-- Category -->
         <span class="toggle" [class.expanded]="node.expanded" (click)="toggleCategory(node)">
+          <i class="fas fa-chevron-right" [class.rotated]="node.expanded"></i>
           {{ node.name }}
         </span>
 
