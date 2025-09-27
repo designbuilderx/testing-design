@@ -1,4 +1,4 @@
-@import '../../../styles/variable.scss';
+@import '../../../assets/abstracts/variables';
 
 .sidebar-left {
   width: 260px;
@@ -31,10 +31,6 @@
       border-radius: 8px;
       transition: background 0.2s;
 
-      &:hover {
-        background-color: rgba(91, 33, 182, 0.05);
-      }
-
       input[type='radio']:checked+label {
         font-weight: 600;
         color: #5b21b6;
@@ -58,10 +54,6 @@
       padding: 4px 0;
       border-radius: 6px;
       transition: background 0.2s;
-
-      &:hover {
-        background: #f5f5f5;
-      }
     }
 
     .toggle::before {
@@ -78,7 +70,7 @@
       transition: color 0.2s, font-weight 0.2s;
 
       &:hover {
-        color: #5b21b6;
+        color: $text-highlight;
         font-weight: 600;
       }
     }

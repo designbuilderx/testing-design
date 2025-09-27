@@ -17,6 +17,9 @@
   font-family: $font-family-base,
   Arial,
   sans-serif;
+  position: sticky; // sticky for desktop
+  top: 0;
+  z-index: 1000;
 
   .brand {
     font-weight: 700;

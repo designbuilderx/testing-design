@@ -17,6 +17,7 @@ $surface-color: #ffffff;
 $border-color: #e6e9ef;
 $text-color: #1f2937;
 $text-light: #6b7280;
+$text-highlight: $primary-color;
 
 /* ----------------- Grey Colors ----------------- */
 $grey-100: #f9fafb; // lightest background
@@ -78,6 +79,9 @@ $radius-lg: 12px;
 $shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
 $shadow: 0 2px 8px rgba(0,0,0,0.05);
 $shadow-lg: 0 4px 16px rgba(0,0,0,0.1);
+
+// Shadow on action buttons focus state
+$border-focus: 2px solid $primary-color; // semi-transparent primary color
 
 $transition-fast: 0.2s ease-in-out;
 $transition-base: 0.3s ease-in-out;

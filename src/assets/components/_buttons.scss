@@ -32,8 +32,8 @@ button {
     font-size: $font-size-sm !important;
     padding: $spacing-xs $spacing-sm !important;
     height: 2.2rem;
-    -webkit-tap-highlight-color: transparent; // removes mobile blue overlay
-    outline: none; // removes desktop outline
+    // -webkit-tap-highlight-color: transparent; // removes mobile blue overlay
+    // outline: none; // removes desktop outline
     
   }
 }
