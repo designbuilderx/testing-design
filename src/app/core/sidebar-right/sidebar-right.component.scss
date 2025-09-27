@@ -20,7 +20,7 @@
 
     strong {
       font-size: 1rem;
-      color: $text-color;
+      color: $text-primary;
     }
 
     .preview-controls {
@@ -61,7 +61,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     margin-bottom: 16px;
     overflow-y: auto;
-    color: $text-color;
+    color: $text-primary;
     font-size: 0.9rem;
 
     &.has-content {
@@ -98,7 +98,7 @@
     align-items: center;
     gap: 12px;
     font-size: 0.875rem;
-    color: $text-color;
+    color: $text-primary;
 
     label {
       font-weight: 500;
