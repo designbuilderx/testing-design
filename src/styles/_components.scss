@@ -1,0 +1,11 @@
+/* Buttons */
+.btn-primary { background:#5b21b6; color:#fff; padding:8px 16px; border-radius:6px; border:none; cursor:pointer; }
+.btn-secondary { background:#e0e0e0; color:#333; padding:8px 16px; border-radius:6px; border:none; cursor:pointer; }
+
+/* Input Boxes */
+.input-default { border:1px solid #ccc; padding:6px; border-radius:4px; }
+.input-focused { border:2px solid #5b21b6; padding:6px; border-radius:4px; }
+
+/* Cards */
+.card-default { border:1px solid #5b21b6; padding:12px; border-radius:8px; background:#fff; }
+.card-shadow { border:1px solid #5b21b6; padding:12px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); background:#fff; }

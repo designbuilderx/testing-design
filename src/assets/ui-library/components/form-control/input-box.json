@@ -1,0 +1,6 @@
+{
+  "InputBox": [
+    { "name": "Default", "class": "input-default", "html": "<input class='input-default' placeholder='Enter text'>" },
+    { "name": "Focused", "class": "input-focused", "html": "<input class='input-focused' placeholder='Focused'>" }
+  ]
+}

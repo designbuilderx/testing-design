@@ -6,11 +6,11 @@ import { TreeNode } from "../models/tree-node";
     expanded: true,
     children: [
       {
-        name: 'Button',
+        name: 'buttons',
         html: `<button style="background:#5b21b6;color:white;padding:8px 16px;border:none;border-radius:6px;">Primary Button</button>`,
       },
       {
-        name: 'Input',
+        name: 'input-box',
         html: `<input placeholder="Enter text" style="border:1px solid #5b21b6;padding:6px;border-radius:6px;"/>`,
       },
       {

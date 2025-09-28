@@ -3,20 +3,24 @@
     <h3 class="component-title">{{ selectedComponent.name }} Variants</h3>
 
     <div class="option-grid">
-      <div 
-        class="" 
+      <div *ngIf="getVariants(selectedComponent).length === 0; else optionList" class="no-selection">
+        No variants available for this component.
+      </div>
+      <ng-template #optionList>
+      <div
         *ngFor="let opt of getVariants(selectedComponent)"
         [class.selected]="opt.name === selectedOptionName"
         (click)="selectOption(opt)"
       >
-        <div [innerHTML]="opt.html | safeHtml"></div>
+        <div *ngIf="opt.html">
+          <div [innerHTML]="opt.html | safeHtml"></div>
+        </div>
       </div>
+      </ng-template>
     </div>
   </div>
 
   <ng-template #noSelection>
-    <div class="no-selection">
-      Select a component from the left sidebar to see its variants
-    </div>
+    <div class="no-selection">Select a component from the left sidebar to see its variants</div>
   </ng-template>
 </div>

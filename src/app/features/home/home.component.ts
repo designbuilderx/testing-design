@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgFor, NgForOf } from '@angular/common';
 import { PreviewService } from '../../services/preivew';
 import { Observable } from 'rxjs';
 import { SafeHtmlPipe } from '../../utils/safe-html.pipes';
+import { Variant, ComponentsLoaderService } from '../../services/component-loader.service';
 
 @Component({
   selector: 'app-home',
@@ -11,53 +12,66 @@ import { SafeHtmlPipe } from '../../utils/safe-html.pipes';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   selectedComponent$: Observable<any>;
-  selectedOptionName: string | null = null; // Track selected variant
+  selectedOptionName: string | null = null;
 
-  constructor(private previewService: PreviewService) {
+  // HashMap: category -> subcategory -> variants array
+  componentsMap: Map<string, Map<string, Variant[]>> = new Map();
+  subMap:Map<string, Variant[]> = new Map<string, Variant[]>();
+
+  // Track selected category/subcategory
+  selectedCategory: string | null = null;
+  selectedSubcategory: string | null = null;
+
+  constructor(
+    private previewService: PreviewService,
+    private loader: ComponentsLoaderService
+  ) {
     this.selectedComponent$ = this.previewService.selectedComponent$;
   }
 
-  getVariants(component: any) {
-    if (!component) return [];
-
-    switch (component.name) {
-      case 'Button':
-        return [
-          { name: 'Primary', html: `<button style="background:#5b21b6;color:white;padding:8px 16px;border:none;border-radius:6px;">Primary</button>` },
-          { name: 'Secondary', html: `<button style="background:#e0e0e0;color:#333;padding:8px 16px;border:none;border-radius:6px;">Secondary</button>` },
-          { name: 'Outline', html: `<button style="border:1px solid #5b21b6;color:#5b21b6;padding:8px 16px;border-radius:6px;background:none;">Outline</button>` },
-          { name: 'Disabled', html: `<button disabled style="background:#ccc;color:#999;padding:8px 16px;border:none;border-radius:6px;">Disabled</button>` }
-        ];
-
-      case 'Input Box':
-        return [
-          { name: 'Default', html: `<input placeholder="Text" style="border:1px solid #5b21b6;padding:6px;border-radius:6px;"/>` },
-          { name: 'Focused', html: `<input placeholder="Text" style="border:2px solid #5b21b6;padding:6px;border-radius:6px;outline:none;"/>` },
-          { name: 'Disabled', html: `<input placeholder="Disabled" disabled style="border:1px solid #ccc;padding:6px;border-radius:6px;"/>` }
-        ];
-
-      case 'Card':
-        return [
-          { name: 'Default', html: `<div style="border:1px solid #5b21b6;padding:12px;border-radius:8px;width:180px;background:#fff;">Card</div>` },
-          { name: 'Shadow', html: `<div style="border:1px solid #5b21b6;padding:12px;border-radius:8px;width:180px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1)">Card</div>` },
-          { name: 'Colored', html: `<div style="border:1px solid #5b21b6;padding:12px;border-radius:8px;width:180px;background:#e0e7ff;">Card</div>` }
-        ];
-
-      case 'Tabs':
-        return [
-          { name: 'Default', html: `<div style="display:flex;gap:4px;"><div style="padding:6px;background:#5b21b6;color:#fff;border-radius:4px;">Tab 1</div><div style="padding:6px;background:#ccc;border-radius:4px;">Tab 2</div></div>` },
-          { name: 'Active Highlight', html: `<div style="display:flex;gap:4px;"><div style="padding:6px;background:#5b21b6;color:#fff;border-radius:4px;">Active Tab</div><div style="padding:6px;background:#eee;border-radius:4px;">Tab 2</div></div>` }
-        ];
-
-      default:
-        return component.children || [];
-    }
+  ngOnInit(): void {
+    this.loader.loadComponents().subscribe({
+      next: (data) => {
+        this.buildComponentsMap(data);
+        console.log(this.subMap);
+      },
+      error: (err) => console.error(err)
+    });
   }
 
-  selectOption(option: any) {
-    this.selectedOptionName = option.name; // mark selected
+ private buildComponentsMap(data: any[]): void {
+  data.forEach(categoryItem => {
+    // const subMap = new Map<string, Variant[]>();
+
+    categoryItem.subcategories.forEach((sub: any) => {
+      // Flatten the variants object and cast to Variant[]
+      const variantsArray: Variant[] = (Object.values(sub.variants).flat() as Variant[]);
+      this.subMap.set(sub.name, variantsArray);
+    });
+    // this.componentsMap.set(categoryItem.category, subMap);
+  });
+}
+
+
+  selectCategory(category: string, subcategory: string) {
+    this.selectedCategory = category;
+    this.selectedSubcategory = subcategory;
+  }
+
+  getVariants(selectedComponent: any): Variant[] {
+    console.log(selectedComponent)
+    // if (!this.selectedCategory || !this.selectedSubcategory) return [];
+    return this.subMap?.get(selectedComponent?.name) || [];
+  }
+
+  selectOption(option: Variant) {
+    this.selectedOptionName = option.name;
     this.previewService.setPreview(option.html);
+  }
+
+  download(option: Variant) {
+    this.previewService.downloadHTML(option.html, `${option.name}.html`);
   }
 }

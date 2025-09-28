@@ -25,4 +25,13 @@ export class PreviewService {
     setColor(color: string) {
     this.componentColorSubject.next(color);
   }
+
+  downloadHTML(html: string, filename = 'component.html') {
+    const blob = new Blob([html], { type: 'text/html' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(link.href);
+  }
 }

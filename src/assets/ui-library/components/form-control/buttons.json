@@ -1,0 +1,6 @@
+{
+  "Button": [
+    { "name": "Primary", "class": "btn-primary", "html": "<button class='btn-primary'>Primary</button>" },
+    { "name": "Secondary", "class": "btn-secondary", "html": "<button class='btn-secondary'>Secondary</button>" }
+  ]
+}
