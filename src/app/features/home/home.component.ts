@@ -18,7 +18,6 @@ export class HomeComponent {
   constructor(private previewService: PreviewService) {
     this.selectedComponent$ = this.previewService.selectedComponent$;
   }
-  numbersArray = Array.from({ length: 100 }, (_, i) => i + 1); // Array of numbers from 1 to 100
 
   getVariants(component: any) {
     if (!component) return [];
