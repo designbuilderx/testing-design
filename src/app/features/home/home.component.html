@@ -4,13 +4,12 @@
 
     <div class="option-grid">
       <div 
-        class="option-card" 
+        class="" 
         *ngFor="let opt of getVariants(selectedComponent)"
         [class.selected]="opt.name === selectedOptionName"
         (click)="selectOption(opt)"
       >
-        <div class="option-preview" [innerHTML]="opt.html | safeHtml"></div>
-        <div class="option-name">{{ opt.name }}</div>
+        <div [innerHTML]="opt.html | safeHtml"></div>
       </div>
     </div>
   </div>
