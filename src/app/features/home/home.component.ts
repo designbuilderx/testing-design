@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule, NgFor, NgForOf } from '@angular/common';
 import { PreviewService } from '../../services/preivew';
 import { Observable } from 'rxjs';
 import { SafeHtmlPipe } from '../../utils/safe-html.pipes';
 import { Variant, ComponentsLoaderService } from '../../services/component-loader.service';
-
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, SafeHtmlPipe, NgFor, NgForOf],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class HomeComponent implements OnInit {
   selectedComponent$: Observable<any>;
