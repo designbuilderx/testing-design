@@ -12,7 +12,7 @@ import { TreeNode } from "../models/tree-node";
         name: 'input-box',
       },
       {
-        name: 'Textarea',
+        name: 'textarea',
       },
       {
         name: 'Checkbox',

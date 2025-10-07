@@ -3,7 +3,7 @@
     {
       "name": "Default",
       "class": "input-default",
-      "html": "<input id='abc' class='input-default' placeholder='Enter text'>"
+      "html": "<input class='input-default' placeholder='Enter text'>"
     },
     {
       "name": "Focused",
@@ -34,6 +34,26 @@
       "name": "Outlined",
       "class": "input-outlined",
       "html": "<input class='input-outlined' placeholder='Outlined'>"
+    },
+    {
+      "name": "With Icon (Right)",
+      "class": "input-with-icon",
+      "html": "<div class='input-icon-wrapper'><input class='input-with-icon' placeholder='Search'><span class='input-icon-right'>🔍</span></div>"
+    },
+    {
+      "name": "With Icon (Left)",
+      "class": "input-with-icon-left",
+      "html": "<div class='input-icon-wrapper'><span class='input-icon-left'>🔍</span><input class='input-with-icon-left' placeholder='Search'></div>"
+    },
+    {
+      "name": "With Prefix",
+      "class": "input-prefix",
+      "html": "<div class='input-prefix-wrapper'><span class='input-prefix'>https://</span><input placeholder='yourwebsite.com'></div>"
+    },
+    {
+      "name": "With Suffix",
+      "class": "input-suffix",
+      "html": "<div class='input-suffix-wrapper'><input placeholder='Enter amount'><span class='input-suffix'>USD</span></div>"
     }
   ]
 }
