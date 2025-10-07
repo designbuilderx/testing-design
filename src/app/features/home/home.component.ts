@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule, NgFor, NgForOf } from '@angular/common';
 import { PreviewService } from '../../services/preivew';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { SafeHtmlPipe } from '../../utils/safe-html.pipes';
 import { Variant, ComponentsLoaderService } from '../../services/component-loader.service';
 @Component({
@@ -12,17 +12,17 @@ import { Variant, ComponentsLoaderService } from '../../services/component-loade
   styleUrls: ['./home.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   selectedComponent$: Observable<any>;
   selectedOptionName: string | null = null;
 
-  // HashMap: category -> subcategory -> variants array
-  componentsMap: Map<string, Map<string, Variant[]>> = new Map();
   subMap:Map<string, Variant[]> = new Map<string, Variant[]>();
 
   // Track selected category/subcategory
   selectedCategory: string | null = null;
   selectedSubcategory: string | null = null;
+
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private previewService: PreviewService,
@@ -32,13 +32,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loader.loadComponents().subscribe({
+   this.subscription.add(this.loader.loadComponents().subscribe({
       next: (data) => {
         this.buildComponentsMap(data);
         console.log(this.subMap);
       },
       error: (err) => console.error(err)
-    });
+    }));
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
  private buildComponentsMap(data: any[]): void {
@@ -50,7 +54,6 @@ export class HomeComponent implements OnInit {
       const variantsArray: Variant[] = (Object.values(sub.variants).flat() as Variant[]);
       this.subMap.set(sub.name, variantsArray);
     });
-    // this.componentsMap.set(categoryItem.category, subMap);
   });
 }
 
@@ -68,7 +71,6 @@ export class HomeComponent implements OnInit {
 
   selectOption(option: Variant) {
     this.selectedOptionName = option.name;
-    this.previewService.setPreview(option.html);
   }
 
   download(option: Variant) {

@@ -7,43 +7,33 @@ import { TreeNode } from "../models/tree-node";
     children: [
       {
         name: 'buttons',
-        html: `<button style="background:#5b21b6;color:white;padding:8px 16px;border:none;border-radius:6px;">Primary Button</button>`,
       },
       {
         name: 'input-box',
-        html: `<input placeholder="Enter text" style="border:1px solid #5b21b6;padding:6px;border-radius:6px;"/>`,
       },
       {
         name: 'Textarea',
-        html: `<textarea placeholder="Enter description" style="border:1px solid #5b21b6;padding:6px;border-radius:6px;width:200px;height:80px;"></textarea>`,
       },
       {
         name: 'Checkbox',
-        html: `<label style="display:flex;align-items:center;gap:6px;"><input type="checkbox"/> Accept Terms</label>`,
       },
       {
         name: 'Radio Button',
-        html: `<label style="display:flex;align-items:center;gap:6px;"><input type="radio" name="radio1"/> Option 1</label>`,
       },
       {
         name: 'Switch',
-        html: `<label style="display:flex;align-items:center;gap:6px;"><input type="checkbox" style="width:40px;height:20px;"/> Toggle</label>`,
       },
       {
         name: 'Slider',
-        html: `<input type="range" min="0" max="100" style="width:150px;"/>`,
       },
       {
         name: 'Select / Dropdown',
-        html: `<select style="border:1px solid #5b21b6;padding:6px;border-radius:6px;"><option>Option 1</option><option>Option 2</option></select>`,
       },
       {
         name: 'Date Picker',
-        html: `<input type="date" style="border:1px solid #5b21b6;padding:6px;border-radius:6px;"/>`,
       },
       {
         name: 'File Upload',
-        html: `<input type="file" style="border:1px solid #5b21b6;padding:4px;border-radius:6px;"/>`,
       },
     ],
   },
