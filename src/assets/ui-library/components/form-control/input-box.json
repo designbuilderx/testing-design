@@ -1,6 +1,39 @@
 {
   "InputBox": [
-    { "name": "Default", "class": "input-default", "html": "<input class='input-default' placeholder='Enter text'>" },
-    { "name": "Focused", "class": "input-focused", "html": "<input class='input-focused' placeholder='Focused'>" }
+    {
+      "name": "Default",
+      "class": "input-default",
+      "html": "<input id='abc' class='input-default' placeholder='Enter text'>"
+    },
+    {
+      "name": "Focused",
+      "class": "input-focused",
+      "html": "<input class='input-focused' placeholder='Focused'>"
+    },
+    {
+      "name": "Error",
+      "class": "input-error",
+      "html": "<input class='input-error' placeholder='Error'>"
+    },
+    {
+      "name": "Success",
+      "class": "input-success",
+      "html": "<input class='input-success' placeholder='Success'>"
+    },
+    {
+      "name": "Disabled",
+      "class": "input-disabled",
+      "html": "<input class='input-disabled' placeholder='Disabled' disabled>"
+    },
+    {
+      "name": "Filled",
+      "class": "input-filled",
+      "html": "<input class='input-filled' placeholder='Filled'>"
+    },
+    {
+      "name": "Outlined",
+      "class": "input-outlined",
+      "html": "<input class='input-outlined' placeholder='Outlined'>"
+    }
   ]
 }

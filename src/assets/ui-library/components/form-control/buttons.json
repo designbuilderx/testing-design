@@ -1,6 +1,74 @@
 {
   "Button": [
-    { "name": "Primary", "class": "btn-primary", "html": "<button class='btn-primary'>Primary</button>" },
-    { "name": "Secondary", "class": "btn-secondary", "html": "<button class='btn-secondary'>Secondary</button>" }
+    {
+      "name": "Primary",
+      "class": "btn-primary",
+      "html": "<button class='btn btn-primary'>Primary</button>"
+    },
+    {
+      "name": "Secondary",
+      "class": "btn-secondary",
+      "html": "<button class='btn btn-secondary'>Secondary</button>"
+    },
+    {
+      "name": "MUI Contained",
+      "class": "btn-mui-contained",
+      "html": "<button class='btn btn-mui-contained'>MUI Contained</button>"
+    },
+    {
+      "name": "MUI Outlined",
+      "class": "btn-mui-outlined",
+      "html": "<button class='btn btn-mui-outlined'>MUI Outlined</button>"
+    },
+    {
+      "name": "MUI Text",
+      "class": "btn-mui-text",
+      "html": "<button class='btn btn-mui-text'>MUI Text</button>"
+    },
+    {
+      "name": "Mat Raised",
+      "class": "btn-mat-raised",
+      "html": "<button class='btn btn-mat-raised'>Mat Raised</button>"
+    },
+    {
+      "name": "Mat Flat",
+      "class": "btn-mat-flat",
+      "html": "<button class='btn btn-mat-flat'>Mat Flat</button>"
+    },
+    {
+      "name": "Mat Stroked",
+      "class": "btn-mat-stroked",
+      "html": "<button class='btn btn-mat-stroked'>Mat Stroked</button>"
+    },
+    {
+      "name": "Tailwind Primary",
+      "class": "btn-tw-primary",
+      "html": "<button class='btn btn-tw-primary'>Tailwind Primary</button>"
+    },
+    {
+      "name": "Tailwind Outline",
+      "class": "btn-tw-outline",
+      "html": "<button class='btn btn-tw-outline'>Tailwind Outline</button>"
+    },
+    {
+      "name": "Tailwind Ghost",
+      "class": "btn-tw-ghost",
+      "html": "<button class='btn btn-tw-ghost'>Tailwind Ghost</button>"
+    },
+    {
+      "name": "Bootstrap Primary",
+      "class": "btn-bs-primary",
+      "html": "<button class='btn btn-bs-primary'>Bootstrap Primary</button>"
+    },
+    {
+      "name": "Bootstrap Secondary",
+      "class": "btn-bs-secondary",
+      "html": "<button class='btn btn-bs-secondary'>Bootstrap Secondary</button>"
+    },
+    {
+      "name": "Bootstrap Outline Primary",
+      "class": "btn-bs-outline",
+      "html": "<button class='btn btn-bs-outline'>Bootstrap Outline</button>"
+    }
   ]
 }
