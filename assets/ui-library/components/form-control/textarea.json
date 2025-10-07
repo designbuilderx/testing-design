@@ -1,0 +1,49 @@
+{
+  "TextArea": [
+    {
+      "name": "Default",
+      "class": "textarea-default",
+      "html": "<textarea class='textarea-default' placeholder='Enter text'></textarea>"
+    },
+    {
+      "name": "Focused",
+      "class": "textarea-focused",
+      "html": "<textarea class='textarea-focused' placeholder='Focused'></textarea>"
+    },
+    {
+      "name": "Error",
+      "class": "textarea-error",
+      "html": "<textarea class='textarea-error' placeholder='Error'></textarea>"
+    },
+    {
+      "name": "Success",
+      "class": "textarea-success",
+      "html": "<textarea class='textarea-success' placeholder='Success'></textarea>"
+    },
+    {
+      "name": "Disabled",
+      "class": "textarea-disabled",
+      "html": "<textarea class='textarea-disabled' placeholder='Disabled' disabled></textarea>"
+    },
+    {
+      "name": "Filled",
+      "class": "textarea-filled",
+      "html": "<textarea class='textarea-filled' placeholder='Filled'></textarea>"
+    },
+    {
+      "name": "Outlined",
+      "class": "textarea-outlined",
+      "html": "<textarea class='textarea-outlined' placeholder='Outlined'></textarea>"
+    },
+    {
+      "name": "With Prefix",
+      "class": "textarea-prefix",
+      "html": "<div class='textarea-prefix-wrapper'><span class='textarea-prefix'>Note:</span><textarea placeholder='Write here'></textarea></div>"
+    },
+    {
+      "name": "With Suffix",
+      "class": "textarea-suffix",
+      "html": "<div class='textarea-suffix-wrapper'><textarea placeholder='Enter amount'></textarea><span class='textarea-suffix'>USD</span></div>"
+    }
+  ]
+}
