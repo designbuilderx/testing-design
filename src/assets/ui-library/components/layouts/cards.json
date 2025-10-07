@@ -1,0 +1,6 @@
+{
+  "Card": [
+    { "name": "Default", "class": "card-default", "html": "<div class='card-default'>Card</div>" },
+    { "name": "Shadow", "class": "card-shadow", "html": "<div class='card-shadow'>Card with shadow</div>" }
+  ]
+}

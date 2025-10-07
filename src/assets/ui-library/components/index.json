@@ -1,0 +1,10 @@
+{
+  "form-control": {
+    "buttons": "buttons.json",
+    "input-box": "input-box.json",
+    "textarea": "textarea.json"
+  },
+  "layouts": {
+    "cards": "cards.json"
+  }
+}

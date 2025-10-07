@@ -1,6 +1,13 @@
+@import '../../../assets/abstracts/variables';
+@import '../../../styles/design-builder/form-control/buttons';
+@import '../../../styles/design-builder/form-control/inputs';
+@import '../../../styles/design-builder/form-control/textarea';
+
 .home-component {
   padding: 16px;
   font-family: 'Inter', Arial, sans-serif;
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
 
   .component-title {
     font-size: 1.25rem;

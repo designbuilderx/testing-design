@@ -36,10 +36,10 @@ export class SidebarLeftComponent {
     const compWithName = {
       ...node,
       name: node.name || categoryName,
-      children: node.children ? node.children : [node],
     };
+    
     this.previewService.setComponent(compWithName);
-    this.previewService.setPreview(compWithName.children[0].html);
+    // this.previewService.setPreview(compWithName.children[0].html);
     this.route.navigate(['/home']);
     this.closeDrawer.emit(); // close drawer on mobile/tablet after selection
   }
